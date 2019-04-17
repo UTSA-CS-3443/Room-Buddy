@@ -28,9 +28,11 @@ public class SignUpController implements EventHandler<ActionEvent>, Initializabl
 
 	@Override
 	public void handle(ActionEvent arg0) {
-		if(!passPhrase.getText().equals(passPhraseConfirm.getText()))
+		if(!passPhrase.getText().equals(passPhraseConfirm.getText())) {
 			passNoMatch.setText("Passwords do not match. Please try again.");
-		
+		} else {
+			// TODO: write user info to csv.
+		}
 		
 	}
 
