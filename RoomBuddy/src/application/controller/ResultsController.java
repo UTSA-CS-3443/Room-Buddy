@@ -16,5 +16,5 @@ import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-//Hello this is Tiff's 
+//Hello this is Tiff's test thingy
 
