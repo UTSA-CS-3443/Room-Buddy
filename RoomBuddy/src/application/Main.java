@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 /**
- * @author Luis Valdes (qbw322)
+ * @author Luis Valdes and Anna Arroyo (qbw322)
  * UTSA CS 3443 - Lab 5
  * Spring 2019
  * the Main class loads the stage and sets it to 800x800 resolution, it then runs through MainController
@@ -29,4 +29,9 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	public void hiLuis() {
+		System.out.print("hi luis");
+		//i love you
+	}
+		
 }
