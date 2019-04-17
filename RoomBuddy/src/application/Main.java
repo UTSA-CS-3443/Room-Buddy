@@ -29,10 +29,5 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	public void hiLUIS() {
-		System.out.print("hi luis");
-		//i love you feel better soon
-		
-	}
 		
 }
