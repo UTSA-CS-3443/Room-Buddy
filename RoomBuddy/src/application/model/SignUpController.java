@@ -34,7 +34,7 @@ public class SignUpController implements EventHandler<ActionEvent>, Initializabl
 	public void goBack(ActionEvent arg0) {
         // Move to previous view - Login.fxml
         Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
-		Main.stage.setScene(new Scene(root, 600, 600));
+		Main.stage.setScene(new Scene(root, 800, 800));
 		Main.stage.show();
 	}
 	
