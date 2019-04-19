@@ -60,6 +60,6 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="28.0" mnemonicParsing="false" onAction="#handle" text="Go Back" />
+      <Button layoutX="14.0" layoutY="28.0" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
    </children>
 </AnchorPane>
