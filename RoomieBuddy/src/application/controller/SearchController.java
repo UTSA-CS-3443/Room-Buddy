@@ -17,8 +17,8 @@ import javafx.scene.image.ImageView;
 
 public class SearchController implements Initializable, EventHandler<ActionEvent> {
 
-	String selectedUni = null;
-	String selectedApt = null;
+	public static String selectedUni = null;
+	public static String selectedApt = null;
 	@FXML ImageView background;
 	@FXML MenuButton uniSelect;
 	@FXML MenuItem utsa;
@@ -65,6 +65,8 @@ public class SearchController implements Initializable, EventHandler<ActionEvent
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {	
 		try {
+			uniSelect.setText("Select a University");
+			aptSelect.setText("Select an Apartment");
 			
 		}
 		catch(Exception e) {
