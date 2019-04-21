@@ -36,7 +36,7 @@ public class user {
 				String line = scan.nextLine();
 				if(!line.equals("")) {
 					String[] userSplit = line.split(",");
-					if(userSplit[0].equals(u) && userSplit[1].equals(p)){
+					if(userSplit[1].equals(u) && userSplit[2].equals(p)){
 						validation = "true";
 				
 						break;
