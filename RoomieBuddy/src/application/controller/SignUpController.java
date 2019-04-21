@@ -24,7 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
 
-public class signUpController implements Initializable, EventHandler<ActionEvent>{
+public class SignUpController implements Initializable, EventHandler<ActionEvent>{
 	@FXML
     private TextField passField;
 
