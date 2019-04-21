@@ -16,8 +16,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			//Parent root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));
-			Parent root = FXMLLoader.load(getClass().getResource("view/Search.fxml")); //uncomment this to test search.fxml
+			Parent root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));
+			//Parent root = FXMLLoader.load(getClass().getResource("view/Search.fxml")); //uncomment this to test search.fxml
 			primaryStage.setScene(new Scene(root, 800, 800));
 			primaryStage.show();
 			
