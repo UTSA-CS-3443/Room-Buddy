@@ -42,8 +42,8 @@ public class ResultsController implements EventHandler<ActionEvent>{
 		scan.useDelimiter("\n"); 
 		while(scan.hasNext()){
 			input = scan.next(); 
-			String[] a; 
-			a = input.split(","); 
+			String[] aa; 
+			aa = input.split(","); 
 			
 			
 			
