@@ -59,8 +59,13 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 				FileWriter writer = new FileWriter("data/loginUpdated.csv",true);
 				String str = "\n" + nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() ; 
 			      
-			      writer.write(str);
-			      writer.close();
+			    writer.write(str);
+			    writer.close();
+			    
+			    // Return to Login page.
+				Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+				Main.stage.setScene(new Scene(root, 800, 800));
+				Main.stage.show();
 				
 			} else {
 				passNotMatch.setText("Passwords do not match. Please try again.");

@@ -49,19 +49,19 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="fullName" layoutX="166.0" layoutY="171.0" />
-      <TextField fx:id="userName" layoutX="166.0" layoutY="233.0" />
-      <TextField fx:id="phoneNum" layoutX="552.0" layoutY="170.0" />
-      <TextField fx:id="eMail" layoutX="552.0" layoutY="233.0" />
+      <TextField fx:id="nameField" layoutX="166.0" layoutY="171.0" />
+      <TextField fx:id="userField" layoutX="166.0" layoutY="233.0" />
+      <TextField fx:id="phoneField" layoutX="552.0" layoutY="170.0" />
+      <TextField fx:id="emailField" layoutX="552.0" layoutY="233.0" />
       <Button layoutX="337.0" layoutY="520.0" mnemonicParsing="false" onAction="#handle" prefHeight="39.0" prefWidth="106.0" text="Create Account">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
       <Button layoutX="14.0" layoutY="28.0" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
-      <PasswordField fx:id="passPhrase" layoutX="166.0" layoutY="293.0" />
-      <PasswordField fx:id="passPhraseConfirm" layoutX="166.0" layoutY="354.0" />
-      <Label fx:id="passNotMatch" layoutX="166.0" layoutY="448.0" prefHeight="21.0" prefWidth="134.0" textFill="#f50909">
+      <PasswordField fx:id="passField" layoutX="166.0" layoutY="293.0" />
+      <PasswordField fx:id="confirmPassField" layoutX="166.0" layoutY="354.0" />
+      <Label fx:id="passNotMatch" layoutX="203.0" layoutY="449.0" prefHeight="21.0" prefWidth="394.0" textAlignment="CENTER" textFill="#f50909">
          <font>
             <Font size="17.0" />
          </font>
