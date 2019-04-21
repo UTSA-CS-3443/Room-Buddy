@@ -4,7 +4,7 @@ package application.controller;
 import java.util.ArrayList;
 
 import application.Main;
-import application.model.user;
+import application.model.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  */
 public class LoginController implements EventHandler<ActionEvent> {
 	public static final String foo = null;
-	public static Object enteredUser;
+	public static User enteredUser;
 	@FXML
 	private TextField userText;
 	@FXML
@@ -39,13 +39,13 @@ public class LoginController implements EventHandler<ActionEvent> {
 		try {
 			String username = userText.getText();
 			String password = passText.getText();
-			user enteredUser = new user(username,password);
+			User enteredUser = new User(username,password);
 			
 			//String welcomedUser = enteredUser.welcomeUser(username);
 			
 		
 			
-				String returnedUser = user.validate(username,password);
+				String returnedUser = User.validate(username,password);
 				if(returnedUser.equals("false")) {
 				}
 				

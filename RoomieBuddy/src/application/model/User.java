@@ -10,10 +10,10 @@ import java.util.Scanner;
  *this class requires 2 arguments to validate if the user's credentials match
  *the username, and the password
  */
-public class user {
+public class User {
 	private String userName;
 	private String passWord;
-	public user(String user, String pass) throws IOException{
+	public User(String user, String pass) throws IOException{
 		this.userName = user;
 		this.passWord = pass;
 	//	validate(userName,passWord);
