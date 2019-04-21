@@ -60,5 +60,10 @@
             <MenuItem fx:id="olotl1" mnemonicParsing="false" text="The Outpost" />
          </items>
       </MenuButton>
+      <Button layoutX="659.0" layoutY="27.0" mnemonicParsing="false" onAction="#logout" prefHeight="65.0" prefWidth="120.0" text="Logout">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
