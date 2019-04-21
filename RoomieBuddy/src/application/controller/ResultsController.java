@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +33,17 @@ public class ResultsController implements EventHandler<ActionEvent>{
 		// TODO Auto-generated method stub
 		
 	}
-	
+	public void logout(ActionEvent event) {
+		try {
+			Parent root;
+			root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+			Main.stage.setScene(new Scene(root, 800, 800));
+			Main.stage.show();	
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	public void loadResults(String results) throws IOException{
 		
 		File file = new File(results); 

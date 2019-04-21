@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -8,12 +9,32 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ResultsController">
    <children>
-      <ListView fx:id="rommateresults" layoutY="114.0" prefHeight="299.0" prefWidth="800.0" />
-      <Label layoutX="245.0" layoutY="53.0" prefHeight="53.0" prefWidth="311.0" text="Rommate Results ">
+      <ImageView fitHeight="800.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../data/blue.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="238.0" layoutY="46.0" prefHeight="53.0" prefWidth="324.0" text="Roommate Results " textFill="WHITE">
          <font>
             <Font name="Sitka Subheading" size="38.0" />
          </font>
       </Label>
-      <ListView fx:id="rommatedetails" layoutX="511.0" layoutY="413.0" prefHeight="389.0" prefWidth="289.0" />
+      <ListView layoutX="86.0" layoutY="206.0" prefHeight="255.0" prefWidth="629.0" />
+      <TextArea layoutX="86.0" layoutY="508.0" prefHeight="200.0" prefWidth="629.0" />
+      <Text fill="WHITE" layoutX="267.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="People you've matched with:" wrappingWidth="278.22265625">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="206.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on a name to see their information">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Button layoutX="655.0" layoutY="23.0" mnemonicParsing="false" onAction="#logout" prefHeight="65.0" prefWidth="120.0" text="Logout">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
