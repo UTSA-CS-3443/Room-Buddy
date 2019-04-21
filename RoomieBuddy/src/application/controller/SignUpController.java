@@ -64,14 +64,26 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 			      writer.write(str);
 			      writer.close();
 				
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
-				Main.stage.setScene(new Scene(root, 800, 800));
-				Main.stage.show();	
+//				Parent root;
+//				root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+//				Main.stage.setScene(new Scene(root, 800, 800));
+//				Main.stage.show();	
 			}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+	}
+	
+	public void goBack(ActionEvent event){
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+			Main.stage.setScene(new Scene(root, 800, 800));
+			Main.stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
 	}
 }
