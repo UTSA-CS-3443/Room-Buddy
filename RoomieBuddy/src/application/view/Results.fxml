@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.TilePane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ResultsController">
+   <children>
+      <ListView fx:id="rommateresults" layoutY="114.0" prefHeight="299.0" prefWidth="800.0" />
+      <Label layoutX="245.0" layoutY="53.0" prefHeight="53.0" prefWidth="311.0" text="Rommate Results ">
+         <font>
+            <Font name="Sitka Subheading" size="38.0" />
+         </font>
+      </Label>
+      <ListView fx:id="rommatedetails" layoutX="511.0" layoutY="413.0" prefHeight="389.0" prefWidth="289.0" />
+   </children>
+</AnchorPane>
