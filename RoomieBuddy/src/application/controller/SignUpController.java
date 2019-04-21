@@ -2,12 +2,15 @@ package application.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+
 import javafx.scene.control.Label;
+
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import application.Main;
-
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -32,6 +35,10 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
     private TextField phoneField;
     @FXML
     private Label passNotMatch;
+    @FXML 
+    private Label emailInUse;
+    @FXML 
+    private Label userInUse;
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -40,6 +47,24 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 	@Override
 	public void handle(ActionEvent arg0) {
 		try {
+			// Make sure username or email are not in use already.
+			// open the file for reading
+			Scanner scan = new Scanner ( new File("data/loginUPDATED.csv") );
+			
+			// read in, line by line, creating HashMap
+			while( scan.hasNextLine() ) {
+				String line = scan.nextLine();
+				String[] tokens = line.split(",");
+				if(tokens[1].equals(userField.getText()))
+					userInUse.setText("Username taken.");
+				
+				if(tokens[3].equals(emailField.getText()))
+					emailInUse.setText("Email already in use.");
+			}
+			
+			// close the file!
+			scan.close();
+			
 			if(passField.getText().equals(confirmPassField.getText())) {
 				FileWriter writer = new FileWriter("data/loginUpdated.csv",true);
 				String str = "\n" + nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() ; 

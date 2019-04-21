@@ -66,5 +66,15 @@
             <Font size="17.0" />
          </font>
       </Label>
+      <Label fx:id="userInUse" layoutX="318.0" layoutY="235.0" prefHeight="21.0" prefWidth="130.0" textFill="#f50909">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="emailInUse" layoutX="482.0" layoutY="272.0" prefHeight="21.0" prefWidth="200.0" textFill="#f50909">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
