@@ -1,59 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="800.0" maxWidth="800.0" minHeight="800.0" minWidth="800.0" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SignUpController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="800.0" pickOnBounds="true">
+      <ImageView fitHeight="600.0" fitWidth="608.0" layoutX="-4.0" layoutY="1.0" pickOnBounds="true">
          <image>
             <Image url="@../../../data/blue.jpg" />
          </image>
       </ImageView>
-      <Text fill="#00ffe4" layoutX="271.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up">
+      <Label layoutX="189.0" layoutY="28.0" text="Sign Up" textFill="#00ffe4">
          <font>
             <Font size="65.0" />
          </font>
-      </Text>
-      <Text fill="#00ffe4" layoutX="173.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+      </Label>
+      <Label layoutX="68.0" layoutY="170.0" text="Full Name: " textFill="#00ffe4">
          <font>
-            <Font size="30.0" />
-         </font></Text>
-      <Text fill="#00ffe4" layoutX="117.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="141.7314453125">
-         <font>
-            <Font size="30.0" />
+            <Font size="18.0" />
          </font>
-      </Text>
-      <Text fill="#00ffe4" layoutX="122.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="141.7314453125">
+      </Label>
+      <Label layoutX="68.0" layoutY="205.0" text="Username:" textFill="#00ffe4">
          <font>
-            <Font size="30.0" />
+            <Font size="18.0" />
          </font>
-      </Text>
-      <Text fill="#00ffe4" layoutX="14.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" wrappingWidth="249.7314453125">
+      </Label>
+      <Label layoutX="73.0" layoutY="244.0" text="Password:" textFill="#00ffe4">
          <font>
-            <Font size="30.0" />
+            <Font size="18.0" />
          </font>
-      </Text>
-      <Text fill="#00ffe4" layoutX="457.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone #:" wrappingWidth="127.7314453125">
+      </Label>
+      <Label layoutX="14.0" layoutY="280.0" text="Confirm Password:" textFill="#00ffe4">
          <font>
-            <Font size="30.0" />
+            <Font size="18.0" />
          </font>
-      </Text>
-      <Text fill="#00ffe4" layoutX="497.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="85.7373046875">
+      </Label>
+      <Label layoutX="324.0" layoutY="169.0" text="Phone Number: " textFill="#00ffe4">
          <font>
-            <Font size="30.0" />
+            <Font size="18.0" />
          </font>
-      </Text>
-      <TextField fx:id="nameField" blendMode="SOFT_LIGHT" layoutX="259.0" layoutY="213.0" />
-      <TextField fx:id="userField" blendMode="SOFT_LIGHT" layoutX="259.0" layoutY="267.0" />
-      <TextField fx:id="phoneField" blendMode="SOFT_LIGHT" layoutX="585.0" layoutY="206.0" />
-      <TextField fx:id="emailField" blendMode="SOFT_LIGHT" layoutX="585.0" layoutY="264.0" />
-      <Button layoutX="534.0" layoutY="399.0" mnemonicParsing="false" onAction="#handle" text="Sign Up" />
-      <PasswordField fx:id="passField" blendMode="SOFT_LIGHT" layoutX="259.0" layoutY="363.0" />
-      <PasswordField fx:id="confirmPassField" blendMode="SOFT_LIGHT" layoutX="259.0" layoutY="426.0" />
+      </Label>
+      <Label layoutX="399.0" layoutY="204.0" text="Email: " textFill="#00ffe4">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fullName" layoutX="166.0" layoutY="171.0" />
+      <TextField fx:id="userName" layoutX="166.0" layoutY="206.0" />
+      <TextField fx:id="passPhrase" layoutX="166.0" layoutY="244.0" />
+      <TextField fx:id="passPhraseConfirm" layoutX="166.0" layoutY="279.0" />
+      <TextField fx:id="phoneNum" layoutX="452.0" layoutY="170.0" />
+      <TextField fx:id="eMail" layoutX="452.0" layoutY="204.0" />
+      <Button fx:id="handle" layoutX="247.0" layoutY="419.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="106.0" text="Create Account">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="14.0" layoutY="28.0" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
    </children>
 </AnchorPane>
