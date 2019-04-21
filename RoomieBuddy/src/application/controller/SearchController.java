@@ -26,7 +26,7 @@ public class SearchController implements Initializable, EventHandler<ActionEvent
 	@FXML MenuItem luxx;
 	/**
 	 * Handles when "Edit Profile" button is pushed. Sends user to profile page
-	 * Broken rn? Dont know why? This is how i always have switched views
+	 * 
 	 */
 	public void handle(ActionEvent event) {
 		try {
@@ -35,6 +35,23 @@ public class SearchController implements Initializable, EventHandler<ActionEvent
 			Parent profileParent = loader.load();
 			Scene profileScene = new Scene(profileParent);		
 			Main.stage.setScene(profileScene);
+			Main.stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Handles when logout button is pushed. Takes user to login screen
+	 * @param event
+	 */
+	public void logout(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation((getClass().getResource("../view/Login.fxml")));
+			Parent loginParent = loader.load();
+			Scene loginScene = new Scene(loginParent);		
+			Main.stage.setScene(loginScene);
 			Main.stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
