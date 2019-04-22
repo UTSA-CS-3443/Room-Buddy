@@ -19,12 +19,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ResultsController implements Initializable, EventHandler<ActionEvent> {
 	
 	@FXML
 	private ListView<String> results;
+	
+	@FXML 
+	private TextArea roommateInfo;
 	
 	public void start(Stage primaryStage) {
 		try {
@@ -52,8 +57,9 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
+		
+	
 	public void loadResults(String results) throws IOException{
 		
 		File file = new File(results); 
@@ -72,25 +78,37 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 		
 		
 	}
+	
+	class ListViewHandler implements EventHandler<MouseEvent> {
+	    @Override
+	    public void handle(MouseEvent event) {
+	        //this method will be overrided in next step
+	    }
+	 }
+	
+    public void handleClick(javafx.scene.input.MouseEvent event) {
+        //System.out.println(results.getSelectionModel().getSelectedIndex());
+        //roommateInfo.textProperty().unbindBidirectional(results.selectionModelProperty());
+        roommateInfo.setText("Tiffany Tabourne - Phone Number: 111-222-3333 - Email: tiffanytabour@gmail.com\n"
+        		+ "Differences: \n" + "Hobbies: Sports, Gaming\n" + "Cleanliness: Moderately Clean");
+    }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		if(LoginController.enteredUser.getName().equals("anna")) {
-			System.out.println(LoginController.enteredUser.getName());
 			ArrayList<String> resultsArray = new ArrayList<String>();
 			resultsArray.add("Tiffany Tabourne");
 			ObservableList<String> items = FXCollections.observableArrayList(resultsArray);
 			results.setItems( items );
+	
 			
 		}
 		
 		if(LoginController.enteredUser.getName().equals("tiffany")) {
-			System.out.println(LoginController.enteredUser.getName());
 			ArrayList<String> resultsArray = new ArrayList<String>();
 			resultsArray.add("Anna Arroyo");
 			ObservableList<String> items = FXCollections.observableArrayList(resultsArray);
 			results.setItems( items );
-			
 		}
 		
 	}
