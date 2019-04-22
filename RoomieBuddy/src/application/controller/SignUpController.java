@@ -47,35 +47,43 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 	@Override
 	public void handle(ActionEvent arg0) {
 		try {
-			// Make sure username or email are not in use already.
-			// open the file for reading
-			Scanner scan = new Scanner ( new File("data/loginUPDATED.csv") );
-			
-			// read in, line by line, creating HashMap
-			while( scan.hasNextLine() ) {
-				String line = scan.nextLine();
-				String[] tokens = line.split(",");
-				if(tokens[1].equals(userField.getText()))
-					userInUse.setText("Username taken.");
-				
-				if(tokens[3].equals(emailField.getText()))
-					emailInUse.setText("Email already in use.");
-			}
-			
-			// close the file!
-			scan.close();
-			
 			if(passField.getText().equals(confirmPassField.getText())) {
-				FileWriter writer = new FileWriter("data/loginUpdated.csv",true);
-				String str = "\n" + nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() ; 
-			      
-			    writer.write(str);
-			    writer.close();
-			    
-			    // Return to Login page.
-				Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
-				Main.stage.setScene(new Scene(root, 800, 800));
-				Main.stage.show();
+				passNotMatch.setText("");
+				userInUse.setText("");
+				emailInUse.setText("");
+				// Make sure username or email are not in use already.
+				// open the file for reading
+				Scanner scan = new Scanner ( new File("data/loginUPDATED.csv") );
+				int errors = 0;
+				// read in, line by line, creating HashMap
+				while( scan.hasNextLine() ) {
+					String line = scan.nextLine();
+					String[] tokens = line.split(",");
+					if(tokens[1].equals(userField.getText())){
+						userInUse.setText("Username taken.");
+						errors++;
+					}
+					
+					if(tokens[3].equals(emailField.getText())){
+						emailInUse.setText("Email already in use.");
+						errors++;
+					}
+				}
+				
+				// close the file!
+				scan.close();
+				if(errors == 0) {
+					FileWriter writer = new FileWriter("data/loginUpdated.csv",true);
+					String str = "\n" + nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() ; 
+				      
+				    writer.write(str);
+				    writer.close();
+				    
+				    // Return to Login page.
+					Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+					Main.stage.setScene(new Scene(root, 800, 800));
+					Main.stage.show();
+				}
 				
 			} else {
 				passNotMatch.setText("Passwords do not match. Please try again.");
