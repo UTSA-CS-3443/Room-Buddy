@@ -89,8 +89,10 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
     public void handleClick(javafx.scene.input.MouseEvent event) {
         //System.out.println(results.getSelectionModel().getSelectedIndex());
         //roommateInfo.textProperty().unbindBidirectional(results.selectionModelProperty());
-        roommateInfo.setText("Tiffany Tabourne - Phone Number: 111-222-3333 - Email: tiffanytabour@gmail.com\n"
-        		+ "Differences: \n" + "Hobbies: Sports, Gaming\n" + "Cleanliness: Moderately Clean");
+        //roommateInfo.setText("Tiffany Tabourne - Phone Number: 111-222-3333 - Email: tiffanytabour@gmail.com\n"
+        		//+ "Differences: \n" + "Hobbies: Sports, Gaming\n" + "Cleanliness: Moderately Clean");
+        roommateInfo.setText("Anna Arroyo - Phone Number: 512-820-2641 - Email: annaearroyo@gmail.com\n"
+        		+ "Differences: \n" + "Hobbies: Film\n" + "Cleanliness: Very Clean");
     }
 
 	@Override
