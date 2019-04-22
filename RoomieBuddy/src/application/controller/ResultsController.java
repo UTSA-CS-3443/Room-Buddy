@@ -4,6 +4,7 @@ package application.controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -20,6 +22,8 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 public class ResultsController implements Initializable, EventHandler<ActionEvent> {
+	
+	@FXML
 	private ListView<String> results;
 	
 	public void start(Stage primaryStage) {
@@ -72,15 +76,23 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		if(LoginController.enteredUser.getName().equals("anna")) {
-			ObservableList<String> items = FXCollections.observableArrayList( "Tiffany Tabourne", " " );
+			System.out.println(LoginController.enteredUser.getName());
+			ArrayList<String> resultsArray = new ArrayList<String>();
+			resultsArray.add("Tiffany Tabourne");
+			ObservableList<String> items = FXCollections.observableArrayList(resultsArray);
+			results.setItems( items );
+			
+		}
+		
+		if(LoginController.enteredUser.getName().equals("tiffany")) {
+			System.out.println(LoginController.enteredUser.getName());
+			ArrayList<String> resultsArray = new ArrayList<String>();
+			resultsArray.add("Anna Arroyo");
+			ObservableList<String> items = FXCollections.observableArrayList(resultsArray);
 			results.setItems( items );
 			
 		}
 		
 	}
-	
-	
-	
-	
 
 }

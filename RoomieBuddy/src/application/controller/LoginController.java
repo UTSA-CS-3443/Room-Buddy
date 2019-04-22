@@ -39,7 +39,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 		try {
 			String username = userText.getText();
 			String password = passText.getText();
-			User enteredUser = new User(username,password);
+			enteredUser = new User(username,password);
 			
 			//String welcomedUser = enteredUser.welcomeUser(username);
 			
