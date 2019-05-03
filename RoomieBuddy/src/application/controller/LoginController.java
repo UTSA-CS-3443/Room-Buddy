@@ -107,19 +107,6 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 		errorMsg.setText("");
 	}
 	
-	public void loadUsers(String file) throws IOException {
-		File f = new File(file);
-		Scanner scan = new Scanner(f); 
-		String input; 
-		
-		while(scan.hasNext()){
-			input = scan.next(); 
-			
-		}
-		
-		scan.close();
-		
-	} 
 	public User getEnteredUser(){
 		return enteredUser; 
 	}
