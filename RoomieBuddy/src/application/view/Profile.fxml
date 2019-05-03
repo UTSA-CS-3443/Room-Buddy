@@ -157,5 +157,10 @@
             <Font size="25.0" />
          </font>
       </Text>
+      <Text fx:id="error" fill="#ff0101" layoutX="465.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="257.3603515625">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
