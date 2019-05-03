@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 public class LoginController implements EventHandler<ActionEvent> {
 	public static final String foo = null;
 	
-	public static User enteredUser;
+	public static User enteredUser = new User(" " , " "); 
 	
 	public static UserNetwork userNetwork = new UserNetwork();
 	@FXML
@@ -53,14 +53,21 @@ public class LoginController implements EventHandler<ActionEvent> {
 			
 			String username = userText.getText();
 			String password = passText.getText();
+		
+			enteredUser.setUsername(username);
+			enteredUser.setPassword(password);
 			
-			enteredUser = new User(username,password);
+			System.out.println(enteredUser.getUsername());
+			
 			SignUpController.currUser = enteredUser;
 
 			
 			//String welcomedUser = enteredUser.welcomeUser(username);
-				String returnedUser = User.validate(username,password);
+			
+				String returnedUser = User.validate(enteredUser.getUsername(),enteredUser.getPassword());
+				
 				System.out.println(returnedUser);
+				
 				if(returnedUser.equals("false")) {
 					errorMsg.setText("Invalid username or password, please enter valid credentials");
 				}

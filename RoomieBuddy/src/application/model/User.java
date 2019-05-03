@@ -26,6 +26,7 @@ public class User {
 		
 		this.username = user; 
 		this.password = pass; 
+		data = new String[14];
 		for(int x = 0; x < data.length; x++){
 			data[x] = ""; 
 		}

@@ -68,8 +68,9 @@ public class UserNetwork {
 			for(int y = 0; y < 14; y++){
 				s += a[y] + "," ;
 			}
-			
+			s += "\n"; 
 		}
+		
 		f.write(s);
 		
 		f.close();
