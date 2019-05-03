@@ -24,7 +24,7 @@ public class UserNetwork {
 		matchedusernames = new ArrayList<String>(); 
 	}
 	
-	public void populateArrayList(User )
+
 	
 	
 	/*
