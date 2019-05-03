@@ -44,7 +44,7 @@ public class UserNetwork {
 			
 			
 			
-		}		
+		}
 	/*
 		for (Map.Entry<Zone, ArrayList<Dinosaur>> entry : parkdata.entrySet()) {			
 			for( int x = 0; x < entry.getValue().size(); x++){

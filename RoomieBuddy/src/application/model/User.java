@@ -59,7 +59,7 @@ public class User {
 				if(!line.equals("")) {
 					String[] userSplit = line.split(",");
 					if(userSplit[1].equals(u) && userSplit[2].equals(p)){
-						validation = "true";			
+						validation = "true";
 						break;
 					}else if((userSplit[0]!=u) && (userSplit[1]!=p)){
 						validation = "false";
@@ -72,20 +72,24 @@ public class User {
 		}
 		return validation;
 	}
+
 	
 	public String getUsername(){
 		return username; 
-		
 	}
+	
 	public String getPassword(){
 		return password; 
 	}
+	
 	public ArrayList<String> getUserData() {
 		return data; 
 	} 
+	
 	public void addData(String d){
 		data.add(d); 
 	}
+	
 	public void setName(String n){
 		this.name = n; 
 	}
@@ -96,6 +100,7 @@ public class User {
 	public void setUsername(String u){
 		this.username = u; 
 	}
+	
 	public void setPassword(String p){
 		this.password= p; 
 	}
