@@ -42,7 +42,7 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
     @FXML 
     private Label userInUse;
     
-    public static UserNetwork userNet; 
+
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -83,7 +83,8 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 					
 					
 				     User s = new User( nameField.getText(),userField.getText(),passField.getText(), phoneField.getText(), emailField.getText());
-				     userNet.getUsers().add(s); 
+				     LoginController.userNetwork.getUsers().add(s); 
+				     LoginController.userNetwork.save();
 				     
 				     
 				     

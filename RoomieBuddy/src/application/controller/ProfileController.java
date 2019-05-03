@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import application.model.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -75,6 +76,8 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
     
     @FXML
     private Text error;
+    
+    User entUser; 
 
     String data[] = new String[14];
 	@Override
@@ -126,12 +129,22 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			
 			// check if every user fills out every field in profile view
 			
+			
+			
+			/*
+			 * 
+			 * 
+			 *  
+			 * 
+			 * 
+			 * 
+			 */
 		if( classification.getText().equals("") || major.getText().equals("") ||
 			  (veryClean.isSelected()==false && modClean.isSelected()==false &&
-			  notClean.isSelected()==false ) || music.isSelected()==false ||
-			  film.isSelected()==false || gaming.isSelected()==false ||
-			  sports.isSelected()==false || hiking.isSelected()==false ||
-			  reading.isSelected()==false || (male.isSelected()==false &&
+			  notClean.isSelected()==false ) || (music.isSelected()==false &&
+			  film.isSelected()==false && gaming.isSelected()==false &&
+			  sports.isSelected()==false && hiking.isSelected() == false &&
+			  reading.isSelected()==false) || (male.isSelected()==false &&
 			  female.isSelected()==false) || university.getText().equals("") ||
 			  apartment.getText().equals("") || bio.getText().equals("") ) 
 		{
@@ -139,8 +152,16 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 		}
 		else {
 			 
+			 
+			
+			
 			LoginController.enteredUser.populateArray(data);
-			LoginController.userNetwork.getUsers().add(LoginController.enteredUser);
+			if(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()) != -1){
+				LoginController.userNetwork.updateExistingUser(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()),data); 
+			}else{
+				LoginController.userNetwork.getUsers().add(LoginController.enteredUser);
+			}
+			
 			LoginController.userNetwork.save();
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();	
