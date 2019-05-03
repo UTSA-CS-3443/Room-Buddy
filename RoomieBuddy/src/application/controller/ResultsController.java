@@ -61,8 +61,10 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 			root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();	
+			
 		} catch(Exception e) {
 			e.printStackTrace();
+			
 		}
 	}
 		
