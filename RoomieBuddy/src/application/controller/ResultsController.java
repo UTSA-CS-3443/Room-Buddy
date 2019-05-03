@@ -65,6 +65,7 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 		} catch(Exception e) {
 			e.printStackTrace();
 			
+			
 		}
 	}
 		
