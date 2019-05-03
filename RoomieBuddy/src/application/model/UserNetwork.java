@@ -3,10 +3,12 @@
 
 package application.model;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Scanner;
 
 import application.controller.LoginController;
 
@@ -27,9 +29,28 @@ public class UserNetwork {
 	}
 	
 	
-	public ArrayList<User> getMatches(User currUser){
-		System.out.println(currUser.getEmail());
-		return null;
+	public ArrayList<String> getMatches(User currUser){
+		String gender = currUser.getData()[10];
+		ArrayList<String> names = new ArrayList<String>();
+		int threshold = 8;
+		
+		try {
+			Scanner scan = new Scanner ( new File("data/results.csv") );
+			
+			while( scan.hasNextLine() ) {
+				String line = scan.nextLine();
+				String[] tokens = line.split(",");
+				if(tokens[2].toLowerCase().equals(gender)){
+					names.add(tokens[0]);
+				}
+			}
+			scan.close();
+			
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println(names);
+		return names;
 	}
 	
 	
