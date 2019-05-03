@@ -80,14 +80,48 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			root = FXMLLoader.load(getClass().getResource("../view/pick.fxml"));
 			data[0] = classification.getText();
 			data[1] = major.getText();
+			data[4] = "false";
+			data[5] = "false";
+			data[6] = "false";
+			data[7] = "false";
+			data[8] = "false";
+			data[9] = "false";
 			if(veryClean.isSelected()) {
 				data[2] = "veryClean";
 			}
+			else if(modClean.isSelected()) {
+				data[2] = "modClean";
+			}
+			else if(notClean.isSelected()) {
+				data[2] = "notClean";
+			}
+			else if(yesParty.isSelected())
+				data[3] = "yesParty";
+			else if(noParty.isSelected())
+				data[3] = "noParty";
+			//hobbies
+			if(music.isSelected())
+				data[4] = "true";
+			if(film.isSelected())
+				data[5] = "true";
+			if(gaming.isSelected())
+				data[6] = "true";
+			if(sports.isSelected())
+				data[7] = "true";
+			if(hiking.isSelected())
+				data[8] = "true";
+			if(reading.isSelected())
+				data[9] = "true";
+			if(male.isSelected())
+				data[10] = "male";
+			else if(female.isSelected())
+				data[10] = "female";
+			data[11] = university.getText();
+			data[12] = apartment.getText();
+			data[13] = bio.getText();
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();	
-			
-			
-			
+				
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -108,7 +142,6 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		ToggleGroup cleanliness = new ToggleGroup();
 		
 	}
 

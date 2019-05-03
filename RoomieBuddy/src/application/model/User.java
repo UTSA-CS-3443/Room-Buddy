@@ -85,12 +85,7 @@ public class User {
 	public String getPassword(){
 		return password; 
 	}
-	public ArrayList<String> getUserData() {
-		return data; 
-	} 
-	public void addData(String d){
-		data.add(d); 
-	}
+
 	public void setName(String n){
 		this.name = n; 
 	}
@@ -121,11 +116,11 @@ public class User {
 		this.signInFlag = signInFlag;
 	}
 
-	public ArrayList<String> getData() {
+	public String[] getData() {
 		return data;
 	}
 
-	public void setData(ArrayList<String> data) {
+	public void setData(String[] data) {
 		this.data = data;
 	}
 
