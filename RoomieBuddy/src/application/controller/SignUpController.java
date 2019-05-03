@@ -42,7 +42,7 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
     @FXML 
     private Label userInUse;
     
-    public static UserNetwork userNet; 
+
     
     public static User currUser;
     
@@ -84,10 +84,11 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 					String str = "\n" + nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() ;
 					
 					
-				     currUser = new User( nameField.getText(),userField.getText(),passField.getText(), phoneField.getText(), emailField.getText());
-				     //System.out.println(nameField.getText() + " " +  userField.getText()+ " " + passField.getText()+ " " +  phoneField.getText()+ " " + emailField.getText());
-				    LoginController.userNetwork.getUsers().add(currUser); 
-			     
+
+				     User s = new User( nameField.getText(),userField.getText(),passField.getText(), phoneField.getText(), emailField.getText());
+				     LoginController.userNetwork.getUsers().add(s); 
+				     LoginController.userNetwork.save();
+				     
 				    writer.write(str);
 				    writer.close();
 				    

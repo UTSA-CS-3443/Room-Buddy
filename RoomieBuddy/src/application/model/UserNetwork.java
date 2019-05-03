@@ -40,7 +40,9 @@ public class UserNetwork {
 	
 	
 	public void save() throws IOException{ 
+		
 		FileWriter f = new FileWriter("loginUPDATED.csv");
+		
 		String s = "";  
 		for( int x = 0; x < users.size(); x++){
 			s+= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
@@ -82,7 +84,23 @@ public class UserNetwork {
 	public void setMatchedusernames(ArrayList<String> matchedusernames) {
 		this.matchedusernames = matchedusernames;
 	}
+
+	public int getExistingUser(String user, String pass){
+		for(int x = 0; x < users.size(); x++){
+			if((users.get(x).getUsername()).equals(user) && (users.get(x).getPassword()).equals(pass)){
+				return x; 
+			}
+		}
+		
+		return -1; 
+	}
 	
+	public void updateExistingUser(int index,String[] updated){
+
+		users.get(index).setData(updated); 
+
+		
+	}
 	
 	
 	

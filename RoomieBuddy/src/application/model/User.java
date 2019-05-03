@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 /**
  * @author qbw322
  *UTSA CS 3443 - Lab 5
@@ -11,6 +12,7 @@ import java.util.Scanner;
  *this class requires 2 arguments to validate if the user's credentials match
  *the username, and the password
  */
+
 public class User {
 	private String name; 
 	private String phoneNumber; 
@@ -61,11 +63,14 @@ public class User {
 			Scanner scan = new Scanner(new File("data/loginUPDATED.csv"));
 			while(scan.hasNextLine()) {
 				String line = scan.nextLine();
+				
 				if(!line.equals("")) {
 					String[] userSplit = line.split(",");
+					
 					if(userSplit[1].equals(u) && userSplit[2].equals(p)){
 						validation = "true";
 						break;
+						
 					}else if((userSplit[0]!=u) && (userSplit[1]!=p)){
 						validation = "false";
 					}
