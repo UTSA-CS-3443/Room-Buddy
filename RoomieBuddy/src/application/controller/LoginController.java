@@ -128,6 +128,7 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
 			userNetwork.loadUsers("data/loginUPDATED.csv");
+			userNetwork.save();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
