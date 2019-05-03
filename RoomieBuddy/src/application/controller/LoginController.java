@@ -107,19 +107,6 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 		errorMsg.setText("");
 	}
 	
-	public void loadUsers(String file) throws IOException {
-		File f = new File(file);
-		Scanner scan = new Scanner(f); 
-		String input; 
-		
-		while(scan.hasNext()){
-			input = scan.next(); 
-			
-		}
-		
-		scan.close();
-		
-	} 
 	public User getEnteredUser(){
 		return enteredUser; 
 	}
@@ -128,6 +115,7 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
 			userNetwork.loadUsers("data/loginUPDATED.csv");
+			userNetwork.save();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

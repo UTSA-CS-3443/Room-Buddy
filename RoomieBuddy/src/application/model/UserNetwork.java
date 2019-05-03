@@ -138,7 +138,7 @@ public class UserNetwork {
 		
 		f.close();
 	}
-	
+	 
 	
 	public void loadUsers(String file) throws IOException{ 
 		File f = new File(file); 
@@ -169,14 +169,7 @@ public class UserNetwork {
 		
 	}
 	
-	
-	
-	
 
-	
-	
-	
-	
 	
 
 	public ArrayList<User> getUsers() {
