@@ -59,6 +59,7 @@ public class UserNetwork {
 	
 	public void save() throws IOException{ 
 		
+		
 		FileWriter f = new FileWriter("data/loginUPDATED.csv",true);
 		
 		String s = "";  
