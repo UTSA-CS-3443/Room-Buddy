@@ -138,8 +138,6 @@ public class UserNetwork {
 	}
 	
 	
-	
-	
 	public void loadUsers(String file) throws IOException{ 
 		File f = new File(file); 
 		Scanner scan = new Scanner(f); 
@@ -150,51 +148,13 @@ public class UserNetwork {
 			input = scan.next(); 
 			String[] a;
 			a = input.split(",");
-			
-			
+		
 			if(a.length == 19){
 				
-				User u = new User(a[0],a[1],a[2],a[3],a[4]); 
-				
+				User u = new User(a[0],a[1],a[2],a[3],a[4]); 	
 			}
 		}
-		//	String[] y; 
-			/*
-			int count; 
-			for(int x = 0; x < 14; x++){
-				
-				
-				
-			}
-			*/
-			
-			/*
-			if(a.length == 4){
-				Dinosaur d = null; 
-				
-				
-				if((a[2]).equals("true")){
-					 d = new Dinosaur(a[0],a[1],true,a[3]);
-				}else{
-					d = new Dinosaur(a[0],a[1],false,a[3]);
-				}
-				
-				
-			
-			for (Map.Entry<Zone, ArrayList<Dinosaur>> entry : parkdata.entrySet()) {	
-				
-				if((entry.getKey().getZCode()).equals(d.getZCode())){
-					
-					entry.getValue().add(d);
-					
-				}
-				
-			}
-			
 	
-		}
-		scan.close();
-		*/
 		
 	}
 	
