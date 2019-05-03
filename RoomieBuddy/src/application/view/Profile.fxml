@@ -54,13 +54,16 @@
          <font>
             <Font size="22.0" />
          </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="cleangrp" />
+         </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="modClean" layoutX="414.0" layoutY="231.0" mnemonicParsing="false" text="Moderately clean" textFill="WHITE">
+      <RadioButton fx:id="modClean" layoutX="414.0" layoutY="231.0" mnemonicParsing="false" text="Moderately clean" textFill="WHITE" toggleGroup="$cleangrp">
          <font>
             <Font size="22.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="veryClean" layoutX="645.0" layoutY="231.0" mnemonicParsing="false" text="Very clean" textFill="WHITE">
+      <RadioButton fx:id="veryClean" layoutX="645.0" layoutY="231.0" mnemonicParsing="false" text="Very clean" textFill="WHITE" toggleGroup="$cleangrp">
          <font>
             <Font size="22.0" />
          </font>
@@ -69,8 +72,11 @@
          <font>
             <Font size="22.0" />
          </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="partygrp" />
+         </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="noParty" layoutX="415.0" layoutY="268.0" mnemonicParsing="false" text="No" textFill="WHITE">
+      <RadioButton fx:id="noParty" layoutX="415.0" layoutY="268.0" mnemonicParsing="false" text="No" textFill="WHITE" toggleGroup="$partygrp">
          <font>
             <Font size="22.0" />
          </font>
@@ -99,18 +105,15 @@
          <font>
             <Font size="22.0" />
          </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="gender" />
+         </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="female" layoutX="331.0" layoutY="415.0" mnemonicParsing="false" text="Female" textFill="WHITE">
+      <RadioButton fx:id="female" layoutX="331.0" layoutY="415.0" mnemonicParsing="false" text="Female" textFill="WHITE" toggleGroup="$gender">
          <font>
             <Font size="22.0" />
          </font>
       </RadioButton>
-      <Text fill="WHITE" layoutX="452.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other:">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Text>
-      <TextField fx:id="otherGender" layoutX="530.0" layoutY="412.0" />
       <Button layoutX="323.0" layoutY="664.0" mnemonicParsing="false" onAction="#handle" prefHeight="65.0" prefWidth="127.0" text="Submit">
          <font>
             <Font name="System Bold" size="22.0" />
@@ -142,5 +145,17 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Button>
+      <TextField fx:id="university" layoutX="589.0" layoutY="134.0" />
+      <TextField fx:id="apartment" layoutX="589.0" layoutY="177.0" />
+      <Text fill="WHITE" layoutX="453.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="University:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="448.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apartment:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

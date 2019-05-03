@@ -24,6 +24,8 @@ public class UserNetwork {
 		matchedusernames = new ArrayList<String>(); 
 	}
 	
+
+	
 	
 	/*
 	public ArrayList<User> compareUsers(String name){ 	

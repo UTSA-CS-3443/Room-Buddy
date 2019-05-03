@@ -40,6 +40,10 @@ public class User {
 	//	validate(userName,passWord);
 	//	welcomeUser(userName);
 	}
+	
+	public void populateArrayList() {
+		
+	}
 	/**
 	 * 
 	 * @param u
