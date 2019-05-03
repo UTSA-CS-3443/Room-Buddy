@@ -26,6 +26,9 @@ public class User {
 		
 		this.username = user; 
 		this.password = pass; 
+		for(int x = 0; x < data.length; x++){
+			data[x] = ""; 
+		}
 		
 	}
 	
@@ -45,6 +48,7 @@ public class User {
 	
 	public void populateArray(String dataParam[]) {
 		this.data = dataParam;
+		
 		
 	}
 	/**
@@ -80,6 +84,7 @@ public class User {
 		}catch( IOException e ) {
 			e.printStackTrace();
 		}
+		System.out.println(validation);
 		return validation;
 	}
 
