@@ -30,20 +30,21 @@ public class UserNetwork {
 		}
 	
 	}
+	
 	*/
 	
 	public void save() throws IOException{ 
 		FileWriter f = new FileWriter("loginUPDATED.csv");
 		String s = ""; 
 		for( int x = 0; x < users.size(); x++){
-			s+= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber();
+			s+= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
+			String[] a = users.get(x).getData();
 			for(int y = 0; y < 14; y++){
-				
-			//	s+= users.get(x).get
-				
+				s += a[y] + ",";
 			}
 			
 		}
+		f.close();
 	/*
 		for (Map.Entry<Zone, ArrayList<Dinosaur>> entry : parkdata.entrySet()) {			
 			for( int x = 0; x < entry.getValue().size(); x++){

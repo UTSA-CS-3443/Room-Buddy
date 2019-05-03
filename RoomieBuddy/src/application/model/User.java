@@ -116,6 +116,10 @@ public class User {
 		this.signInFlag = signInFlag;
 	}
 
+	public String[] getData() {
+		return data;
+	}
+
 	public String getName() {
 		return name;
 	}
