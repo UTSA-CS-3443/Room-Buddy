@@ -137,7 +137,6 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
