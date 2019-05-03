@@ -18,7 +18,7 @@ public class User {
 	private String username;
 	private String password;
 	private boolean signInFlag; 
-	private ArrayList<String> data; 
+	private String data[]; 
 	
 	public User(String user, String pass){
 		
@@ -33,7 +33,7 @@ public class User {
 		this.password = pass;
 		this.phoneNumber = phoneNumber; 
 		this.email = email; 
-		data = new ArrayList<String>();
+		data = new String[14];
 		
 		int x = 0;
 	
@@ -41,7 +41,7 @@ public class User {
 	//	welcomeUser(userName);
 	}
 	
-	public void populateArrayList() {
+	public void populateArray(String dataParam[]) {
 		
 	}
 	/**
