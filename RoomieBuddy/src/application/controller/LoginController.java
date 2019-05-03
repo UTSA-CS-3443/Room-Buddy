@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import application.Main;
 import application.model.User;
+import application.model.UserNetwork;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -20,13 +21,14 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 /**
  * @author Luis Valdes (qbw322)
- * UTSA CS 3443 - Lab 5
+ * UTSA CS 3443
  * Spring 2019
  * Login controller handles the login credentials
  */
 public class LoginController implements EventHandler<ActionEvent> {
 	public static final String foo = null;
 	public static User enteredUser;
+	public static UserNetwork userNetwork = new UserNetwork();
 	@FXML
 	private TextField userText;
 	@FXML

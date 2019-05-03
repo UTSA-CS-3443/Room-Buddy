@@ -42,6 +42,7 @@ public class User {
 	}
 	
 	public void populateArray(String dataParam[]) {
+		this.data = dataParam;
 		
 	}
 	/**
@@ -121,13 +122,14 @@ public class User {
 		return data;
 	}
 
+	public void setData(String[] data) {
+		this.data = data;
+	}
 	public String getName() {
 		return name;
 	}
 
-	public void setData(String[] data) {
-		this.data = data;
-	}
+	
 
 	public String getEmail() {
 		return email;
