@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- * @author qbw322
- *UTSA CS 3443 - Lab 5
+ * @author Luis Valdes qbw322, Klay Teegardin mof162 
+ * UTSA CS 3443
  * Spring 2019
  *this class requires 2 arguments to validate if the user's credentials match
  *the username, and the password
@@ -42,6 +42,7 @@ public class User {
 	}
 	
 	public void populateArray(String dataParam[]) {
+		this.data = dataParam;
 		
 	}
 	/**

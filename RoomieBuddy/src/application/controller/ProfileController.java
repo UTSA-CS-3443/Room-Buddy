@@ -119,6 +119,9 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			data[11] = university.getText();
 			data[12] = apartment.getText();
 			data[13] = bio.getText();
+			LoginController.enteredUser.populateArray(data);
+			LoginController.userNetwork.getUsers().add(LoginController.enteredUser);
+			LoginController.userNetwork.save();
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();	
 				
