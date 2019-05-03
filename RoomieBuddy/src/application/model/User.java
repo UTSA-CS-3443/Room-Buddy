@@ -12,17 +12,30 @@ import java.util.Scanner;
  *the username, and the password
  */
 public class User {
+	private String name; 
+	private String phoneNumber; 
+	private String email; 
 	private String username;
 	private String password;
 	private ArrayList<String> data; 
 	
-	public User(String user, String pass) throws IOException{
+	public User(String user, String pass){
+		
+		this.username = user; 
+		this.password = pass; 
+	}
+	
+	public User(String name, String user, String pass, String phoneNumber, String email) throws IOException{
 
+		this.name = name; 
 		this.username = user;
 		this.password = pass;
-		int x = 0;
-
+		this.phoneNumber = phoneNumber; 
+		this.email = email; 
+		data = new ArrayList<String>();
 		
+		int x = 0;
+	
 	//	validate(userName,passWord);
 	//	welcomeUser(userName);
 	}
@@ -70,6 +83,9 @@ public class User {
 	public ArrayList<String> getUserData() {
 		return data; 
 	} 
+	public void addData(String d){
+		data.add(d); 
+	}
 	
 	
 	
