@@ -14,17 +14,21 @@ public class UserNetwork {
 	
 	
 	private ArrayList<User> users; 
-	private ArrayList<String> matchedusernames; 
+	private ArrayList<User> matchedUserNames; 
 	
 	
 	public UserNetwork(){ 
 		users = new ArrayList<User>(); 
-		matchedusernames = new ArrayList<String>(); 
+		matchedUserNames = new ArrayList<User>(); 
 	}
 	
-	public User[] getMatches(User currUser) {
-		User u;
-		return null;
+	public ArrayList<User> getMatches(User currUser) {
+		
+		for( int i = 0; i < users.size() ; i++ )
+		{
+			
+		}
+		return this.matchedUserNames;
 	}
 	
 
