@@ -14,7 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
-
+//uselesscontrollerbtw
 public class SearchController implements Initializable, EventHandler<ActionEvent> {
 
 	public static String selectedUni = null;

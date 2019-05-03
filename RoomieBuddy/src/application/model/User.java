@@ -17,9 +17,11 @@ public class User {
 	private ArrayList<String> data; 
 	
 	public User(String user, String pass) throws IOException{
+
 		this.username = user;
 		this.password = pass;
 		int x = 0;
+
 		
 	//	validate(userName,passWord);
 	//	welcomeUser(userName);
