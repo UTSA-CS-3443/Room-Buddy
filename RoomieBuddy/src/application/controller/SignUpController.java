@@ -78,15 +78,14 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 				// close the file!
 				scan.close();
 				if(errors == 0) {
-					FileWriter writer = new FileWriter("data/loginUpdated.csv",true);
+					FileWriter writer = new FileWriter("data/loginUPDATED.csv",true);
 					String str = "\n" + nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() ;
 					
 					
 				     User s = new User( nameField.getText(),userField.getText(),passField.getText(), phoneField.getText(), emailField.getText());
-				     userNet.getUsers().add(s); 
-				     
-				     
-				     
+				     //System.out.println(nameField.getText() + " " +  userField.getText()+ " " + passField.getText()+ " " +  phoneField.getText()+ " " + emailField.getText());
+				    LoginController.userNetwork.getUsers().add(s); 
+			     
 				    writer.write(str);
 				    writer.close();
 				    
