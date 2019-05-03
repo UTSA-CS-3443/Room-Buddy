@@ -154,8 +154,14 @@ public class UserNetwork {
 			
 			if(a.length == 19){
 				
-				User u = new User(a[0],a[1],a[2],a[3],a[4]); 
-				
+				User u = new User(a[0],a[1],a[2],a[3],a[4]);
+				String data[] = new String[14];
+				for(int i=0; i < 14; i++) {
+					int j=i+5;
+					data[i] = a[j];
+				}
+				u.setData(data);
+				users.add(u);
 			}
 		}
 		//	String[] y; 
