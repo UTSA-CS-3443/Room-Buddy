@@ -48,9 +48,9 @@ public class User {
 	}
 	
 	public void populateArray(String dataParam[]) {
+
 		this.data = dataParam;
-		
-		
+
 	}
 	/**
 	 * 

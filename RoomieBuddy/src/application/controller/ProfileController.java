@@ -126,6 +126,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			data[11] = university.getText();
 			data[12] = apartment.getText();
 			data[13] = bio.getText();
+			
 		if( classification.getText().equals("") || major.getText().equals("") ||
 			  (veryClean.isSelected()==false && modClean.isSelected()==false &&
 			  notClean.isSelected()==false ) || (music.isSelected()==false &&
@@ -140,14 +141,14 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 		}
 		else {
 			 
-		
-			LoginController.enteredUser.populateArray(data);
-			if(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()) != -1){
-				LoginController.userNetwork.updateExistingUser(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()),data); 
-			}else{
+		//System.out.println("CHECK");
+			
+			
+			if(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()) == -1){						
 				LoginController.userNetwork.getUsers().add(LoginController.enteredUser);
 			}
 			
+			LoginController.userNetwork.updateExistingUser(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()),data); 
 			LoginController.userNetwork.save();
 			
 			

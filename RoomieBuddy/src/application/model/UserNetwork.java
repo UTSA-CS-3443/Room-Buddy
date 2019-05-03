@@ -1,6 +1,3 @@
-
-
-
 package application.model;
 
 import java.io.File;
@@ -14,12 +11,8 @@ import application.controller.LoginController;
 
 public class UserNetwork {
 
-
-
-
 	private ArrayList<User> users; 
 	private ArrayList<String> matchedusernames; 
-
 
 	public UserNetwork(){ 
 
@@ -45,8 +38,8 @@ public class UserNetwork {
 		String university = currUser.getData()[11];
 		String apartment = currUser.getData()[12];
 
-
 		ArrayList<String> names = new ArrayList<String>();
+		
 		int threshold = 8;
 		int count;
 
@@ -58,7 +51,6 @@ public class UserNetwork {
 				String line = scan.nextLine();
 				String[] tokens = line.split(",");
 				if(!tokens[0].toLowerCase().equals(currUser.getName())) {
-
 
 					if(tokens[2].toLowerCase().equals(classification)){
 						count++;
@@ -124,20 +116,16 @@ public class UserNetwork {
 
 	public void save() throws IOException{ 
 
-
 		//FileWriter f = new FileWriter("loginUPDATED.csv");
 
-		
-
-		FileWriter f = new FileWriter("data/loginUPDATED.csv",true);
+		FileWriter f = new FileWriter("data/loginUPDATED.csv");
 		
 		String s = "";  
 		for( int x = 0; x < users.size(); x++){
 			s= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
-			String[] a = users.get(x).getData();
-			
-			
-			for(int y = 0; y < 14; y++){
+			String[] a = users.get(x).getData();			
+			for(int y = 0; y < a.length; y++){
+				
 				s += a[y] + "," ;
 			}
 			s += "\n"; 
@@ -147,18 +135,78 @@ public class UserNetwork {
 		f.write(s);
 		
 		f.close();
-		/*
-		for (Map.Entry<Zone, ArrayList<Dinosaur>> entry : parkdata.entrySet()) {			
-			for( int x = 0; x < entry.getValue().size(); x++){
-				Dinosaur d = entry.getValue().get(x); 			
-				String s = d.getName()+ "," +d.getType() + "," + Boolean.toString(d.getBolDiet()) + "," + d.getZCode() + "\n";
-				f.write(s);
+	}
+	
+	
+	
+	
+	public void loadUsers(String file) throws IOException{ 
+		File f = new File(file); 
+		Scanner scan = new Scanner(f); 
+		String input; 
+		int count = 0; 
+		scan.useDelimiter("\n");
+		while(scan.hasNext()){
+			input = scan.next(); 
+			String[] a;
+			a = input.split(",");
+			
+			
+			if(a.length == 19){
+				
+				User u = new User(a[0],a[1],a[2],a[3],a[4]); 
+				
 			}
 		}
-		f.close();
-		 */
+		//	String[] y; 
+			/*
+			int count; 
+			for(int x = 0; x < 14; x++){
+				
+				
+				
+			}
+			*/
+			
+			/*
+			if(a.length == 4){
+				Dinosaur d = null; 
+				
+				
+				if((a[2]).equals("true")){
+					 d = new Dinosaur(a[0],a[1],true,a[3]);
+				}else{
+					d = new Dinosaur(a[0],a[1],false,a[3]);
+				}
+				
+				
+			
+			for (Map.Entry<Zone, ArrayList<Dinosaur>> entry : parkdata.entrySet()) {	
+				
+				if((entry.getKey().getZCode()).equals(d.getZCode())){
+					
+					entry.getValue().add(d);
+					
+				}
+				
+			}
+			
+	
+		}
+		scan.close();
+		*/
+		
 	}
+	
+	
+	
+	
 
+	
+	
+	
+	
+	
 
 	public ArrayList<User> getUsers() {
 		return users;
