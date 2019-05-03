@@ -18,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
@@ -31,6 +32,11 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 	@FXML 
 	private TextArea roommateInfo;
 	
+	@FXML 
+	private Button logout; 
+	
+	/*
+	
 	public void start(Stage primaryStage) {
 		try {
 			
@@ -41,7 +47,7 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 			e.printStackTrace();
 		}
 	}
-	
+*/	
 	@Override
 	public void handle(ActionEvent arg0) {
 		
@@ -49,6 +55,7 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 		
 	}
 	public void logout(ActionEvent event) {
+		
 		try {
 			Parent root;
 			root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
@@ -71,10 +78,7 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 			input = scan.next(); 
 			String[] aa; 
 			aa = input.split(","); 
-			
-			
-			
-		}
+	}
 		
 		
 	}
@@ -87,32 +91,20 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 	 }
 	
     public void handleClick(javafx.scene.input.MouseEvent event) {
-        //System.out.println(results.getSelectionModel().getSelectedIndex());
-        //roommateInfo.textProperty().unbindBidirectional(results.selectionModelProperty());
-        //roommateInfo.setText("Tiffany Tabourne - Phone Number: 111-222-3333 - Email: tiffanytabour@gmail.com\n"
-        		//+ "Differences: \n" + "Hobbies: Sports, Gaming\n" + "Cleanliness: Moderately Clean");
-        roommateInfo.setText("Anna Arroyo - Phone Number: 512-820-2641 - Email: annaearroyo@gmail.com\n"
-        		+ "Differences: \n" + "Hobbies: Film\n" + "Cleanliness: Very Clean");
+   
     }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		if(LoginController.enteredUser.getName().equals("anna")) {
-			ArrayList<String> resultsArray = new ArrayList<String>();
-			resultsArray.add("Tiffany Tabourne");
-			ObservableList<String> items = FXCollections.observableArrayList(resultsArray);
-			results.setItems( items );
+		
+		
+	}
 	
-			
-		}
+	public void getUser(String name){
 		
-		if(LoginController.enteredUser.getName().equals("tiffany")) {
-			ArrayList<String> resultsArray = new ArrayList<String>();
-			resultsArray.add("Anna Arroyo");
-			ObservableList<String> items = FXCollections.observableArrayList(resultsArray);
-			results.setItems( items );
-		}
 		
+		
+		return; 
 	}
 
 }
