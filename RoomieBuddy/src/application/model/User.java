@@ -33,8 +33,7 @@ public class User {
 		this.password = pass;
 		this.phoneNumber = phoneNumber; 
 		this.email = email; 
-		data = new String[14];
-		
+		data = new String[14];		
 		int x = 0;
 	
 	//	validate(userName,passWord);
@@ -86,14 +85,6 @@ public class User {
 		return password; 
 	}
 	
-	public ArrayList<String> getUserData() {
-		return data; 
-	} 
-	
-	public void addData(String d){
-		data.add(d); 
-	}
-	
 	public void setName(String n){
 		this.name = n; 
 	}
@@ -125,16 +116,12 @@ public class User {
 		this.signInFlag = signInFlag;
 	}
 
-	public ArrayList<String> getData() {
-		return data;
-	}
-
-	public void setData(ArrayList<String> data) {
-		this.data = data;
-	}
-
 	public String getName() {
 		return name;
+	}
+
+	public void setData(String[] data) {
+		this.data = data;
 	}
 
 	public String getEmail() {
