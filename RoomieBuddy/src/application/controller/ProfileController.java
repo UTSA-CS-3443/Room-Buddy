@@ -72,13 +72,17 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
     @FXML
     private RadioButton notClean;
 
-    
-
+    String data[] = new String[14];
 	@Override
 	public void handle(ActionEvent event) {
 		try {		
 			Parent root;
 			root = FXMLLoader.load(getClass().getResource("../view/pick.fxml"));
+			data[0] = classification.getText();
+			data[1] = major.getText();
+			if(veryClean.isSelected()) {
+				data[2] = "veryClean";
+			}
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();	
 			
