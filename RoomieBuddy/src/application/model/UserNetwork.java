@@ -56,6 +56,26 @@ public class UserNetwork {
 		f.close();
 		*/
 	}
+
+
+	public ArrayList<User> getUsers() {
+		return users;
+	}
+
+
+	public void setUsers(ArrayList<User> users) {
+		this.users = users;
+	}
+
+
+	public ArrayList<String> getMatchedusernames() {
+		return matchedusernames;
+	}
+
+
+	public void setMatchedusernames(ArrayList<String> matchedusernames) {
+		this.matchedusernames = matchedusernames;
+	}
 	
 	
 	

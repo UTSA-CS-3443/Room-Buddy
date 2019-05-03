@@ -11,6 +11,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import application.Main;
+import application.model.User;
+import application.model.UserNetwork;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -40,12 +42,15 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
     @FXML 
     private Label userInUse;
     
+    public static UserNetwork userNet; 
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
 	}
 	@Override
 	public void handle(ActionEvent arg0) {
+		
 		try {
 			if(passField.getText().equals(confirmPassField.getText())) {
 				passNotMatch.setText("");
@@ -74,8 +79,14 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 				scan.close();
 				if(errors == 0) {
 					FileWriter writer = new FileWriter("data/loginUpdated.csv",true);
-					String str = "\n" + nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() ; 
-				      
+					String str = "\n" + nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() ;
+					
+					
+				     User s = new User( nameField.getText(),userField.getText(),passField.getText(), phoneField.getText(), emailField.getText());
+				     userNet.getUsers().add(s); 
+				     
+				     
+				     
 				    writer.write(str);
 				    writer.close();
 				    

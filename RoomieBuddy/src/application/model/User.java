@@ -17,6 +17,7 @@ public class User {
 	private String email; 
 	private String username;
 	private String password;
+	private boolean signInFlag; 
 	private ArrayList<String> data; 
 	
 	public User(String user, String pass){
@@ -85,6 +86,51 @@ public class User {
 	} 
 	public void addData(String d){
 		data.add(d); 
+	}
+	public void setName(String n){
+		this.name = n; 
+	}
+	
+	public void setEmail(String e){ 
+		this.email = e; 
+	}
+	public void setUsername(String u){
+		this.username = u; 
+	}
+	public void setPassword(String p){
+		this.password= p; 
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public boolean isSignInFlag() {
+		return signInFlag;
+	}
+
+	public void setSignInFlag(boolean signInFlag) {
+		this.signInFlag = signInFlag;
+	}
+
+	public ArrayList<String> getData() {
+		return data;
+	}
+
+	public void setData(ArrayList<String> data) {
+		this.data = data;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getEmail() {
+		return email;
 	}
 	
 	
