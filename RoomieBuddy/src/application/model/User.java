@@ -19,6 +19,7 @@ public class User {
 	public User(String user, String pass) throws IOException{
 		this.userName = user;
 		this.passWord = pass;
+		int x = 0;
 		
 	//	validate(userName,passWord);
 	//	welcomeUser(userName);
