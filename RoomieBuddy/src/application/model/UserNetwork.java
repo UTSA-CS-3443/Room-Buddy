@@ -36,7 +36,7 @@ public class UserNetwork {
 	
 	public void save() throws IOException{ 
 		FileWriter f = new FileWriter("loginUPDATED.csv");
-		String s = ""; 
+		String s = "" ;  
 		for( int x = 0; x < users.size(); x++){
 			s+= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
 			String[] a = users.get(x).getData();
