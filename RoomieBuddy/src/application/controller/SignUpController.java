@@ -92,7 +92,7 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 				    //writer.close();
 				    
 				    // Return to Login page.
-					Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("../view/Profile.fxml"));
 					Main.stage.setScene(new Scene(root, 800, 800));
 					Main.stage.show();
 				}

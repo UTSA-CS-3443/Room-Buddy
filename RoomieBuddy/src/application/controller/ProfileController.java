@@ -1,5 +1,6 @@
 package application.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -73,6 +74,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 
     @FXML
     private RadioButton notClean;
+
     
     @FXML
     private Text error;
@@ -82,9 +84,6 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
     String data[] = new String[14];
 	@Override
 	public void handle(ActionEvent event) {
-		try {		
-			Parent root;
-			root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
 			data[0] = classification.getText();
 			data[1] = major.getText();
 			data[4] = "false";
@@ -127,6 +126,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			data[12] = apartment.getText();
 			data[13] = bio.getText();
 			
+
 		if( classification.getText().equals("") || major.getText().equals("") ||
 			  (veryClean.isSelected()==false && modClean.isSelected()==false &&
 			  notClean.isSelected()==false ) || (music.isSelected()==false &&
@@ -141,26 +141,38 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 		}
 		else {
 			 
+
 		//System.out.println("CHECK");
 			
 			
 			if(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()) == -1){						
+
 				LoginController.userNetwork.getUsers().add(LoginController.enteredUser);
 			}
+
 			
 			LoginController.userNetwork.updateExistingUser(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()),data); 
-			LoginController.userNetwork.save();
 			
 			
-			Main.stage.setScene(new Scene(root, 800, 800));
-			Main.stage.show();	
+		
+			 
+			try {
+				LoginController.userNetwork.save();
+				Parent root;
+				if(LoginController.enteredUser.isSignInFlag())
+					root = FXMLLoader.load(getClass().getResource("../view/pick.fxml"));
+				else{
+					root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+				}
+				Main.stage.setScene(new Scene(root, 800, 800));
+				Main.stage.show();	
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 				
 		}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
 		
-			
 	}
 	 
 	public void logout(ActionEvent event) {
