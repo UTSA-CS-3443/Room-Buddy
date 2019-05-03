@@ -31,8 +31,6 @@ public class PickViewController implements EventHandler<ActionEvent>  {
 			e.printStackTrace();
 		}
  
-
-		
 	}
 	public void results(ActionEvent event) throws IOException {
 		// TODO Auto-generated method stub
