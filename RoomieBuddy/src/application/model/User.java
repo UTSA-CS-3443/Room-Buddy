@@ -17,7 +17,7 @@ public class User {
 	private String email; 
 	private String username;
 	private String password;
-	private boolean signInFlag; 
+	private boolean signInFlag = false;
 	private String data[]; 
 	
 	public User(String user, String pass){

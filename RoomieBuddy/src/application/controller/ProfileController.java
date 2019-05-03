@@ -15,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.text.Text;
 
 public class ProfileController implements Initializable, EventHandler<ActionEvent> {
 	
@@ -72,16 +71,11 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 
     @FXML
     private RadioButton notClean;
-    
-    @FXML
-    private Text error;
 
     String data[] = new String[14];
 	@Override
 	public void handle(ActionEvent event) {
 		try {		
-			Parent root;
-			root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
 			data[0] = classification.getText();
 			data[1] = major.getText();
 			data[4] = "false";
@@ -125,32 +119,32 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			data[13] = bio.getText();
 			
 			// check if every user fills out every field in profile view
-			
-		if( classification.getText().equals("") || major.getText().equals("") ||
-			  (veryClean.isSelected()==false && modClean.isSelected()==false &&
-			  notClean.isSelected()==false ) || music.isSelected()==false ||
-			  film.isSelected()==false || gaming.isSelected()==false ||
-			  sports.isSelected()==false || hiking.isSelected()==false ||
-			  reading.isSelected()==false || (male.isSelected()==false &&
-			  female.isSelected()==false) || university.getText().equals("") ||
-			  apartment.getText().equals("") || bio.getText().equals("") ) 
-		{
-			  error.setText("Please fill in all fields!"); 
-		}
-		else {
-			 
+			if( classification.getText().equals("") || 
+				major.getText().equals("") ||
+				(veryClean.isSelected()==false && modClean.isSelected()==false && notClean.isSelected()==false ) ||
+				music.isSelected()==false || 
+				film.isSelected()==false ||
+				gaming.isSelected()==false ||
+				sports.isSelected()==false ||
+				hiking.isSelected()==false ||
+				reading.isSelected()==false ||
+				(male.isSelected()==false && female.isSelected()==false) ||
+				university.getText().equals("") ||
+				apartment.getText().equals("") ||
+				bio.getText().equals("")
+				)
 			LoginController.enteredUser.populateArray(data);
 			LoginController.userNetwork.getUsers().add(LoginController.enteredUser);
 			LoginController.userNetwork.save();
+			Parent root;
+			root = FXMLLoader.load(getClass().getResource("../view/pick.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();	
 				
-		}
-		}catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-			
 	}
 	 
 	public void logout(ActionEvent event) {
