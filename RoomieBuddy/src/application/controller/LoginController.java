@@ -28,6 +28,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 	private TextField userText;
 	@FXML
 	private TextField passText;  
+	
 	@Override
 	/**
 	 * get the user's username and password, then pass that into the validate method inside User.java 

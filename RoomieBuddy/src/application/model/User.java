@@ -28,6 +28,7 @@ public class User {
 	 * the validate method checks if what the user entered is in the system and returns true if they are, 
 	 * and false if they are not
 	 */
+	
 	public static String validate(String u, String p)throws IOException {
 		String validation = "";
 		try {
@@ -51,6 +52,7 @@ public class User {
 		}
 		return validation;
 	}
+	
 	/**
 	 * @return
 	 * @throws IOException

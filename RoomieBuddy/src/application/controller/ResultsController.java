@@ -105,8 +105,6 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 	
 	public void getUser(String name){
 		
-		
-		
 		return; 
 	}
 
