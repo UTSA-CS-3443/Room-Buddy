@@ -21,6 +21,7 @@ public class pickViewController implements EventHandler<ActionEvent>  {
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
+		int hi;
 		Parent root;
 		try {
 			root = FXMLLoader.load(getClass().getResource("../view/Profile.fxml"));
