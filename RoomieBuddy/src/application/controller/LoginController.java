@@ -28,7 +28,8 @@ public class LoginController implements EventHandler<ActionEvent> {
 	private TextField userText;
 	@FXML
 	private TextField passText;  
-	
+	@FXML
+	private Text errorMsg;
 	@Override
 	/**
 	 * get the user's username and password, then pass that into the validate method inside User.java 
@@ -48,6 +49,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 			
 				String returnedUser = User.validate(username,password);
 				if(returnedUser.equals("false")) {
+					errorMsg.setText("Invalid username or password, please enter valid credentials");
 				}
 				
 				if(returnedUser.equals("true")) {
@@ -61,71 +63,10 @@ public class LoginController implements EventHandler<ActionEvent> {
 					}
 				}
 				
-					
-			//	FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/Personnel.fxml"));
-			//	Parent root = (Parent) loader.load();
-				
-			//	PersonnelController secController = loader.getController();
-			//	secController.stringName(welcomedUser);
-			//	secController.shipNregister(shipNreg);	
-			//for(int i=0;i<=7;i++) {
-					//if(nameSplit[i].toLowerCase().contains(username)) {
-					//	str =nameSplit[i];
-					//  index = i;
-				//		secController.name1(nameSplit[index]);
-					//}
-				//}
-				/*	if ( nameSplit[3].toLowerCase().indexOf(username.toLowerCase()) != -1 ) {
-						secController.name3(nameSplit[0]);
-					}
-					if(!nameSplit[1].toLowerCase().contains(username)) {
-						secController.name2(nameSplit[1]);
-					}
-					if(!nameSplit[2].toLowerCase().contains(username)) {
-						secController.name3(nameSplit[2]);
-					}
-					if(!nameSplit[3].toLowerCase().contains(username)) {
-						secController.name4(nameSplit[3]);
-					}
-					if(!nameSplit[4].toLowerCase().contains(username)) {
-						secController.name5(nameSplit[4]);
-					}
-					if(!nameSplit[5].toLowerCase().contains(username)) {
-						secController.name6(nameSplit[5]);
-					}
-					if(!nameSplit[6].toLowerCase().contains(username)) {
-						secController.name7(nameSplit[6]);
-					}
-					if(!nameSplit[7].toLowerCase().contains(username)) {
-						secController.name8(nameSplit[7]);
-					}
-					if(nameSplit[1].toLowerCase().contains(username)) {
-						secController.name2(nameSplit[0]);
-					}
-					if(nameSplit[2].toLowerCase().contains(username)) {
-						secController.name3(nameSplit[0]);
-					}
-					if(nameSplit[3].toLowerCase().contains(username)) {
-						secController.name4(nameSplit[0]);
-					}
-					if(nameSplit[4].toLowerCase().contains(username)) {
-						secController.name5(nameSplit[0]);
-					}
-					if(nameSplit[5].toLowerCase().contains(username)) {
-						secController.name6(nameSplit[0]);
-					}
-					if(nameSplit[6].toLowerCase().contains(username)) {
-						secController.name7(nameSplit[0]);
-					}
-					if(nameSplit[7].toLowerCase().contains(username)) {
-						secController.name8(nameSplit[7]);
-					}
-				Main.stage.setScene(new Scene(root, 800, 800));
-				Main.stage.show();
-				}
-				}
-		*/}catch(Exception e) {
-			//	e.printStackTrace();
+					    
+			
+		}catch(Exception e) {
+			errorMsg.setText("Invalid user or password, please enter valid credentials");
 		}		
 	}
 	public void signup(ActionEvent event){
@@ -138,4 +79,8 @@ public class LoginController implements EventHandler<ActionEvent> {
 			e.printStackTrace();
 		}
 	}
+	public void clearText( ) {
+		errorMsg.setText("");
+	}
+
 }
