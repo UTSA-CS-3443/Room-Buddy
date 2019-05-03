@@ -37,7 +37,7 @@ public class User {
 
 		this.name = name; 
 		this.username = user;
-		this.password = pass;
+		this.password = pass; 
 		this.phoneNumber = phoneNumber; 
 		this.email = email; 
 		data = new String[14];		
