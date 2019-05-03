@@ -1,9 +1,11 @@
 package application.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import application.model.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.text.Text;
 
 public class ProfileController implements Initializable, EventHandler<ActionEvent> {
 	
@@ -72,10 +75,15 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
     @FXML
     private RadioButton notClean;
 
+    
+    @FXML
+    private Text error;
+    
+    User entUser; 
+
     String data[] = new String[14];
 	@Override
 	public void handle(ActionEvent event) {
-		try {		
 			data[0] = classification.getText();
 			data[1] = major.getText();
 			data[4] = "false";
@@ -111,9 +119,9 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			if(reading.isSelected())
 				data[9] = "true";
 			if(male.isSelected())
-				data[10] = "male";
+				data[10] = "m";
 			else if(female.isSelected())
-				data[10] = "female";
+				data[10] = "f";
 			data[11] = university.getText();
 			data[12] = apartment.getText();
 			data[13] = bio.getText();
@@ -133,16 +141,43 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 				apartment.getText().equals("") ||
 				bio.getText().equals("")
 				)
+		if( classification.getText().equals("") || major.getText().equals("") ||
+			  (veryClean.isSelected()==false && modClean.isSelected()==false &&
+			  notClean.isSelected()==false ) || (music.isSelected()==false &&
+			  film.isSelected()==false && gaming.isSelected()==false &&
+			  sports.isSelected()==false && hiking.isSelected() == false &&
+			  sports.isSelected()==false && hiking.isSelected()==false &&
+			  reading.isSelected()==false) || (male.isSelected()==false &&
+			  female.isSelected()==false) || university.getText().equals("") ||
+			  apartment.getText().equals("") || bio.getText().equals("") ) 
+		{
+			  error.setText("Please fill in all fields!"); 
+		}
+		else {
+			 
+		
 			LoginController.enteredUser.populateArray(data);
-			LoginController.userNetwork.getUsers().add(LoginController.enteredUser);
-			LoginController.userNetwork.save();
-			Parent root;
-			root = FXMLLoader.load(getClass().getResource("../view/pick.fxml"));
-			Main.stage.setScene(new Scene(root, 800, 800));
-			Main.stage.show();	
+			//checks if user already exists? if it does it updates his data with the new data
+			if(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()) != -1){
+				LoginController.userNetwork.updateExistingUser(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()),data); 
+			}else{
+				//otherwise user does not exist, adds him to the userNetwork
+				LoginController.userNetwork.getUsers().add(LoginController.enteredUser);
+			}
+			
+			try {
+				LoginController.userNetwork.save();
+				Parent root;
+				//if(enteredUser)
+				root = FXMLLoader.load(getClass().getResource("../view/pick.fxml"));
+				Main.stage.setScene(new Scene(root, 800, 800));
+				Main.stage.show();	
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 				
-		} catch(Exception e) {
-			e.printStackTrace();
 		}
 		
 	}
