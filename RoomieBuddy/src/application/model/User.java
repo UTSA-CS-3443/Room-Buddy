@@ -24,6 +24,7 @@ public class User {
 		
 		this.username = user; 
 		this.password = pass; 
+		
 	}
 	
 	public User(String name, String user, String pass, String phoneNumber, String email) throws IOException{

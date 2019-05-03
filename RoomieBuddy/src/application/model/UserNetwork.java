@@ -16,6 +16,7 @@ public class UserNetwork {
 	
 	public UserNetwork(){ 
 		
+		
 		users = new ArrayList<User>(); 
 		matchedusernames = new ArrayList<String>(); 
 	}
