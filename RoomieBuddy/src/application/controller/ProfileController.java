@@ -144,6 +144,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			  notClean.isSelected()==false ) || (music.isSelected()==false &&
 			  film.isSelected()==false && gaming.isSelected()==false &&
 			  sports.isSelected()==false && hiking.isSelected() == false &&
+			  sports.isSelected()==false && hiking.isSelected()==false &&
 			  reading.isSelected()==false) || (male.isSelected()==false &&
 			  female.isSelected()==false) || university.getText().equals("") ||
 			  apartment.getText().equals("") || bio.getText().equals("") ) 

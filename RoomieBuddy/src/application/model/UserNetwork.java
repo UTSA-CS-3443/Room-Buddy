@@ -24,18 +24,20 @@ public class UserNetwork {
 		matchedusernames = new ArrayList<String>(); 
 	}
 	
-	/*
-	public ArrayList<User> compareUsers(String name){ 	
+	
+	public ArrayList<User> getMatches(User currUser){
+		System.out.println(currUser.getEmail());
+		return null;
 	}
 	
-	public User getUser(String name){ 	
+	/*public User getUser(String name){ 	
 		for(int x = 0; x < users.size(); x++){
 			//if((users.get(x).getUsername()).equals(name))
 		}
 	
-	}
+	}*/
 	
-	*/
+	
 	
 	public void save() throws IOException{ 
 		
