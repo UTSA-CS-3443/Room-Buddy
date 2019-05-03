@@ -58,7 +58,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 				if(returnedUser.equals("true")) {
 					try {
 						Parent root;
-						root = FXMLLoader.load(getClass().getResource("../view/Search.fxml"));
+						root = FXMLLoader.load(getClass().getResource("../view/pick.fxml"));
 						Main.stage.setScene(new Scene(root, 800, 800));
 						Main.stage.show();	
 					} catch(Exception e) {

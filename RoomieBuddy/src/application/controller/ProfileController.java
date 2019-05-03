@@ -28,18 +28,6 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 		}
 		
 	}
-
-	public void goBack(ActionEvent event) {
-		try {
-			Parent root;
-			root = FXMLLoader.load(getClass().getResource("../view/Search.fxml"));
-			Main.stage.setScene(new Scene(root, 800, 800));
-			Main.stage.show();	
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
 	public void logout(ActionEvent event) {
 		try {
 			Parent root;

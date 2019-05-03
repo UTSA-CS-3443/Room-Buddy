@@ -47,12 +47,12 @@
             <Reflection topOpacity="0.33" />
          </effect>
       </PasswordField>
-      <Button blendMode="DIFFERENCE" layoutX="125.0" layoutY="558.0" mnemonicParsing="false" onAction="#handle" prefHeight="46.0" prefWidth="162.0" text="Sign In">
+      <Button blendMode="DIFFERENCE" layoutX="196.0" layoutY="558.0" mnemonicParsing="false" onAction="#handle" prefHeight="46.0" prefWidth="162.0" text="Sign In">
          <font>
             <Font size="32.0" />
          </font>
       </Button>
-      <Button blendMode="DIFFERENCE" layoutX="332.0" layoutY="558.0" mnemonicParsing="false" onAction="#signup" prefHeight="46.0" prefWidth="162.0" text="Sign Up">
+      <Button blendMode="DIFFERENCE" layoutX="449.0" layoutY="558.0" mnemonicParsing="false" onAction="#signup" prefHeight="46.0" prefWidth="162.0" text="Sign Up">
          <font>
             <Font size="32.0" />
          </font>
