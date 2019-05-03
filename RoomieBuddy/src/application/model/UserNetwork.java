@@ -65,6 +65,7 @@ public class UserNetwork {
 		for( int x = 0; x < users.size(); x++){
 			s= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
 			String[] a = users.get(x).getData();
+			
 			for(int y = 0; y < 14; y++){
 				s += a[y] + "," ;
 			}
