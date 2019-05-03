@@ -44,6 +44,8 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
     
     public static UserNetwork userNet; 
     
+    public static User currUser;
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -82,9 +84,9 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 					String str = "\n" + nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() ;
 					
 					
-				     User s = new User( nameField.getText(),userField.getText(),passField.getText(), phoneField.getText(), emailField.getText());
+				     currUser = new User( nameField.getText(),userField.getText(),passField.getText(), phoneField.getText(), emailField.getText());
 				     //System.out.println(nameField.getText() + " " +  userField.getText()+ " " + passField.getText()+ " " +  phoneField.getText()+ " " + emailField.getText());
-				    LoginController.userNetwork.getUsers().add(s); 
+				    LoginController.userNetwork.getUsers().add(currUser); 
 			     
 				    writer.write(str);
 				    writer.close();
