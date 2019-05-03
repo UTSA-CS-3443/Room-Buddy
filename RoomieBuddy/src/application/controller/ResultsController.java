@@ -70,21 +70,30 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 	}
 		
 	
-	public void loadResults(String results) throws IOException{
+	public void loadResults() throws IOException{
 		
-		File file = new File(results); 
-		Scanner scan = new Scanner(file); 
-		String input; 
-		int count; 
-		scan.useDelimiter("\n"); 
-		while(scan.hasNext()){
-			input = scan.next(); 
-			String[] aa; 
-			aa = input.split(","); 
+		try {
+			Scanner scan = new Scanner ( new File("data/results.csv") );
+			//String input; 
+			//int count; 
+			//scan.useDelimiter("\n"); 
+			while(scan.hasNextLine()){
+				String line = scan.nextLine(); 
+				String [] tokens  = line.split(","); 
+				
+				
+			}
+		}
+			catch( IOException e ){
+				e.printStackTrace();
+			}
+		}
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
 	}
-		
-		
-	}
+	
 	
 	class ListViewHandler implements EventHandler<MouseEvent> {
 	    @Override
@@ -93,15 +102,10 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 	    }
 	 }
 	
+	
     public void handleClick(javafx.scene.input.MouseEvent event) {
-   
+    	
     }
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		
-		
-	}
 	
 	public void getUser(String name){
 		
