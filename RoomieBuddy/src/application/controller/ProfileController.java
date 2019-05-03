@@ -120,9 +120,9 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			if(reading.isSelected())
 				data[9] = "true";
 			if(male.isSelected())
-				data[10] = "male";
+				data[10] = "m";
 			else if(female.isSelected())
-				data[10] = "female";
+				data[10] = "f";
 			data[11] = university.getText();
 			data[12] = apartment.getText();
 			data[13] = bio.getText();
