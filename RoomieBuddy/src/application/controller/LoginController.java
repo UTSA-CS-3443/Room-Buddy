@@ -27,7 +27,9 @@ import javafx.stage.Stage;
  */
 public class LoginController implements EventHandler<ActionEvent> {
 	public static final String foo = null;
+	
 	public static User enteredUser;
+	
 	public static UserNetwork userNetwork = new UserNetwork();
 	@FXML
 	private TextField userText;
@@ -47,12 +49,17 @@ public class LoginController implements EventHandler<ActionEvent> {
 	public void handle( ActionEvent event) {
 
 		try {
+			
 			String username = userText.getText();
 			String password = passText.getText();
+			
 			enteredUser = new User(username,password);
+			
+			//System.out.println(enteredUser.getUsername() + "HELLO");
 			
 			//String welcomedUser = enteredUser.welcomeUser(username);
 				String returnedUser = User.validate(username,password);
+				System.out.println(returnedUser);
 				if(returnedUser.equals("false")) {
 					errorMsg.setText("Invalid username or password, please enter valid credentials");
 				}
@@ -60,7 +67,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 				if(returnedUser.equals("true")) {
 					try {
 						Parent root;
-						root = FXMLLoader.load(getClass().getResource("../view/pick.fxml"));
+						root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
 						Main.stage.setScene(new Scene(root, 800, 800));
 						Main.stage.show();	
 					} catch(Exception e) {
@@ -102,5 +109,8 @@ public class LoginController implements EventHandler<ActionEvent> {
 		scan.close();
 		
 	} 
+	public User getEnteredUser(){
+		return enteredUser; 
+	}
 
 }

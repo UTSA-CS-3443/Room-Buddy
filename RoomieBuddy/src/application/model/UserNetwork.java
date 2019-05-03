@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import application.controller.LoginController;
+
 public class UserNetwork {
 	
 	
@@ -30,28 +32,24 @@ public class UserNetwork {
 		return null;
 	}
 	
-	/*public User getUser(String name){ 	
-		for(int x = 0; x < users.size(); x++){
-			//if((users.get(x).getUsername()).equals(name))
-		}
 	
-	}*/
 	
 	
 	
 	public void save() throws IOException{ 
 		
-		FileWriter f = new FileWriter("loginUPDATED.csv");
+		FileWriter f = new FileWriter("data/loginUPDATED.csv",true);
 		
 		String s = "";  
 		for( int x = 0; x < users.size(); x++){
-			s+= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
+			s= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
 			String[] a = users.get(x).getData();
 			for(int y = 0; y < 14; y++){
 				s += a[y] + "," ;
 			}
 			
 		}
+		f.write(s);
 		f.close();
 	/*
 		for (Map.Entry<Zone, ArrayList<Dinosaur>> entry : parkdata.entrySet()) {			

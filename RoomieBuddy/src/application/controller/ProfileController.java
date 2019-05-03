@@ -126,19 +126,6 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			data[11] = university.getText();
 			data[12] = apartment.getText();
 			data[13] = bio.getText();
-			
-			// check if every user fills out every field in profile view
-			
-			
-			
-			/*
-			 * 
-			 * 
-			 *  
-			 * 
-			 * 
-			 * 
-			 */
 		if( classification.getText().equals("") || major.getText().equals("") ||
 			  (veryClean.isSelected()==false && modClean.isSelected()==false &&
 			  notClean.isSelected()==false ) || (music.isSelected()==false &&
@@ -153,9 +140,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 		}
 		else {
 			 
-			 
-			
-			
+		
 			LoginController.enteredUser.populateArray(data);
 			if(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()) != -1){
 				LoginController.userNetwork.updateExistingUser(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()),data); 
@@ -164,6 +149,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			}
 			
 			LoginController.userNetwork.save();
+			
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();	
 				
