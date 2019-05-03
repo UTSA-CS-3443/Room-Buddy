@@ -70,7 +70,7 @@
             <Font size="22.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="noParty" layoutX="351.0" layoutY="268.0" mnemonicParsing="false" text="No" textFill="WHITE">
+      <RadioButton fx:id="noParty" layoutX="415.0" layoutY="268.0" mnemonicParsing="false" text="No" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
@@ -116,7 +116,7 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <RadioButton fx:id="sports" layoutX="567.0" layoutY="321.0" mnemonicParsing="false" text="Sports" textFill="WHITE">
+      <RadioButton fx:id="sports" layoutX="567.0" layoutY="318.0" mnemonicParsing="false" text="Sports" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
