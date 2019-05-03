@@ -76,6 +76,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 					try {
 						Parent root;
 						root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
+						enteredUser.setSignInFlag(true);
 						Main.stage.setScene(new Scene(root, 800, 800));
 						Main.stage.show();	
 					} catch(Exception e) {

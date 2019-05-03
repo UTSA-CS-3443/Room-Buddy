@@ -168,8 +168,11 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			try {
 				LoginController.userNetwork.save();
 				Parent root;
-				//if(enteredUser)
-				root = FXMLLoader.load(getClass().getResource("../view/pick.fxml"));
+				if(LoginController.enteredUser.isSignInFlag())
+					root = FXMLLoader.load(getClass().getResource("../view/pick.fxml"));
+				else{
+					root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+				}
 				Main.stage.setScene(new Scene(root, 800, 800));
 				Main.stage.show();	
 			} catch (IOException e) {
