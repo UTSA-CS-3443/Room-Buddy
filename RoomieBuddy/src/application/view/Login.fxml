@@ -57,5 +57,10 @@
             <Font size="32.0" />
          </font>
       </Button>
+      <Text fx:id="errorMsg" fill="RED" layoutX="85.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="550.6708984375">
+         <font>
+            <Font name="OCR A Extended" size="25.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

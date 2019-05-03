@@ -1,7 +1,10 @@
 package application.controller;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import application.Main;
 import application.model.User;
@@ -30,6 +33,9 @@ public class LoginController implements EventHandler<ActionEvent> {
 	private TextField passText;  
 	@FXML
 	private Text errorMsg;
+	
+	ArrayList<User> users = new ArrayList<User>(); 
+	
 	@Override
 	/**
 	 * get the user's username and password, then pass that into the validate method inside User.java 
@@ -44,9 +50,6 @@ public class LoginController implements EventHandler<ActionEvent> {
 			enteredUser = new User(username,password);
 			
 			//String welcomedUser = enteredUser.welcomeUser(username);
-			
-		
-			
 				String returnedUser = User.validate(username,password);
 				if(returnedUser.equals("false")) {
 					errorMsg.setText("Invalid username or password, please enter valid credentials");
@@ -59,16 +62,17 @@ public class LoginController implements EventHandler<ActionEvent> {
 						Main.stage.setScene(new Scene(root, 800, 800));
 						Main.stage.show();	
 					} catch(Exception e) {
-						e.printStackTrace();
+						//e.printStackTrace();
 					}
 				}
 				
 					    
 			
 		}catch(Exception e) {
-			errorMsg.setText("Invalid user or password, please enter valid credentials");
+		//	e.printStackTrace();
 		}		
 	}
+	
 	public void signup(ActionEvent event){
 		try {
 			Parent root;
@@ -82,5 +86,19 @@ public class LoginController implements EventHandler<ActionEvent> {
 	public void clearText( ) {
 		errorMsg.setText("");
 	}
+	
+	public void loadUsers(String file) throws IOException {
+		File f = new File(file);
+		Scanner scan = new Scanner(f); 
+		String input; 
+		
+		while(scan.hasNext()){
+			input = scan.next(); 
+			
+		}
+		
+		scan.close();
+		
+	} 
 
 }
