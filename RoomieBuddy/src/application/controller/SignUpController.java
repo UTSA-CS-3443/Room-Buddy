@@ -62,7 +62,7 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 				// open the file for reading
 				Scanner scan = new Scanner ( new File("data/loginUPDATED.csv") );
 				int errors = 0;
-				// read in, line by line, creating HashMap
+				
 				while( scan.hasNextLine() ) {
 					String line = scan.nextLine();
 					String[] tokens = line.split(",");
