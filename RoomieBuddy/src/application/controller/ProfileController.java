@@ -130,6 +130,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 	 
 	public void logout(ActionEvent event) {
 		try {
+			 
 			Parent root;
 			root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));
