@@ -71,6 +71,7 @@ public class UserNetwork {
 			
 		}
 		f.write(s);
+		
 		f.close();
 	/*
 		for (Map.Entry<Zone, ArrayList<Dinosaur>> entry : parkdata.entrySet()) {			

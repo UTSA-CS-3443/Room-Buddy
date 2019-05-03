@@ -150,6 +150,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			
 			LoginController.userNetwork.save();
 			
+			
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();	
 				
