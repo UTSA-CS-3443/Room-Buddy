@@ -125,21 +125,25 @@ public class UserNetwork {
 	public void save() throws IOException{ 
 
 
-		FileWriter f = new FileWriter("loginUPDATED.csv");
-
+		//FileWriter f = new FileWriter("loginUPDATED.csv");
 
 		
-		FileWriter ef = new FileWriter("data/loginUPDATED.csv",true);
+
+		FileWriter f = new FileWriter("data/loginUPDATED.csv",true);
 		
 		String s = "";  
 		for( int x = 0; x < users.size(); x++){
 			s= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
 			String[] a = users.get(x).getData();
+			
+			
 			for(int y = 0; y < 14; y++){
 				s += a[y] + "," ;
 			}
+			s += "\n"; 
 
 		}
+		
 		f.write(s);
 		
 		f.close();
