@@ -23,6 +23,7 @@ public class UserNetwork {
 	}
 	
 	public User[] getMatches(User currUser) {
+		User u;
 		return null;
 	}
 	
