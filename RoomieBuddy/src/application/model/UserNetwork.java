@@ -1,3 +1,6 @@
+
+
+
 package application.model;
 
 import java.io.FileWriter;
@@ -11,27 +14,14 @@ public class UserNetwork {
 	
 	
 	private ArrayList<User> users; 
-<<<<<<< HEAD
 	private ArrayList<String> matchedusernames; 
-=======
-	private ArrayList<User> matchedUserNames; 
->>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/Room-Buddy.git
 	
 	
 	public UserNetwork(){ 
 		
 		
 		users = new ArrayList<User>(); 
-		matchedUserNames = new ArrayList<User>(); 
-	}
-	
-	public ArrayList<User> getMatches(User currUser) {
-		
-		for( int i = 0; i < users.size() ; i++ )
-		{
-			
-		}
-		return this.matchedUserNames;
+		matchedusernames = new ArrayList<String>(); 
 	}
 	
 	/*
