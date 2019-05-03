@@ -50,6 +50,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 			String username = userText.getText();
 			String password = passText.getText();
 			enteredUser = new User(username,password);
+			SignUpController.currUser = enteredUser;
 			
 			//String welcomedUser = enteredUser.welcomeUser(username);
 				String returnedUser = User.validate(username,password);

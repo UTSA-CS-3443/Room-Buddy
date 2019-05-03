@@ -26,7 +26,7 @@ public class UserNetwork {
 	
 	
 	public ArrayList<User> getMatches(User currUser){
-		System.out.println(currUser.getEmail());
+		System.out.println(currUser.getData()[0]);
 		return null;
 	}
 	
