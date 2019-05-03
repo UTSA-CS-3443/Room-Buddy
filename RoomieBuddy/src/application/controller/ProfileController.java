@@ -164,7 +164,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 				//otherwise user does not exist, adds him to the userNetwork
 				LoginController.userNetwork.getUsers().add(LoginController.enteredUser);
 			}
-			
+			 
 			try {
 				LoginController.userNetwork.save();
 				Parent root;
