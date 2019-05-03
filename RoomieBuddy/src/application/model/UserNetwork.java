@@ -125,8 +125,11 @@ public class UserNetwork {
 			s= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
 			String[] a = users.get(x).getData();			
 			for(int y = 0; y < a.length; y++){
-				
-				s += a[y] + "," ;
+				if(y+1!=a.length)
+					s += a[y] + "," ;
+				else {
+					s+=a[y];
+				}
 			}
 			s += "\n"; 
 
@@ -151,7 +154,16 @@ public class UserNetwork {
 		
 			if(a.length == 19){
 				
-				User u = new User(a[0],a[1],a[2],a[3],a[4]); 	
+
+				User u = new User(a[0],a[1],a[2],a[3],a[4]);
+				String data[] = new String[14];
+				for(int i=0; i < 14; i++) {
+					int j=i+5;
+					data[i] = a[j];
+				}
+				u.setData(data);
+				users.add(u);
+
 			}
 		}
 	

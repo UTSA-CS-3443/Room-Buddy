@@ -3,7 +3,9 @@ package application.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 import application.Main;
@@ -13,7 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -26,7 +28,7 @@ import javafx.stage.Stage;
  * Spring 2019
  * Login controller handles the login credentials
  */
-public class LoginController implements EventHandler<ActionEvent> {
+public class LoginController implements Initializable, EventHandler<ActionEvent> {
 	public static final String foo = null;
 	
 	public static User enteredUser = new User(" " , " "); 
@@ -120,6 +122,16 @@ public class LoginController implements EventHandler<ActionEvent> {
 	} 
 	public User getEnteredUser(){
 		return enteredUser; 
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		try {
+			userNetwork.loadUsers("data/loginUPDATED.csv");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
