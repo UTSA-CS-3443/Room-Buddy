@@ -22,6 +22,10 @@ public class UserNetwork {
 		matchedusernames = new ArrayList<String>(); 
 	}
 	
+	public User[] getMatches(User currUser) {
+		return null;
+	}
+	
 
 	
 	
