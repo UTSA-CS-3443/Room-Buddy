@@ -113,7 +113,7 @@ public class UserNetwork {
 		System.out.println(names);
 		return names;
 	}
-<<<<<<< HEAD
+
 
 	/*public User getUser(String name){ 	
 		for(int x = 0; x < users.size(); x++){
@@ -122,25 +122,15 @@ public class UserNetwork {
 
 	}*/
 
-
-
-=======
-	
-	
-	
-	
-	
->>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/Room-Buddy.git
 	public void save() throws IOException{ 
-<<<<<<< HEAD
+
 
 		FileWriter f = new FileWriter("loginUPDATED.csv");
 
-=======
+
 		
-		FileWriter f = new FileWriter("data/loginUPDATED.csv",true);
+		FileWriter ef = new FileWriter("data/loginUPDATED.csv",true);
 		
->>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/Room-Buddy.git
 		String s = "";  
 		for( int x = 0; x < users.size(); x++){
 			s= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
