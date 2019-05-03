@@ -3,7 +3,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import application.Main;
 import application.model.User;
 import javafx.event.ActionEvent;
@@ -17,7 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class pickViewController implements EventHandler<ActionEvent>  {
+public class PickViewController implements EventHandler<ActionEvent>  {
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
