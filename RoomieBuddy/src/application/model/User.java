@@ -41,8 +41,7 @@ public class User {
 		this.phoneNumber = phoneNumber; 
 		this.email = email; 
 		data = new String[14];		
-		
-	
+			
 	//	validate(userName,passWord);
 	//	welcomeUser(userName);
 	}

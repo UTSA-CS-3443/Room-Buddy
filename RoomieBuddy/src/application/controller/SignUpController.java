@@ -79,17 +79,18 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 				
 				// close the file!
 				scan.close();
-				System.out.println(errors);
+				//System.out.println(errors);
 				if(errors == 0) {
-					//FileWriter writer = new FileWriter("data/loginUPDATED.csv",true);
-					//String str = "\n" + nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() ;
+					FileWriter writer = new FileWriter("data/loginUPDATED.csv",true);
+					String str = nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() + "\n"  ;
 					
-                     User s = new User( nameField.getText(),userField.getText(),passField.getText(), phoneField.getText(), emailField.getText());
-				     LoginController.userNetwork.getUsers().add(s); 
-				     LoginController.userNetwork.save();
+                     LoginController.enteredUser = new User( nameField.getText(),userField.getText(),passField.getText(), phoneField.getText(), emailField.getText());
+				   //  LoginController.userNetwork.getUsers().add(s); 
+				     //System.out.println(LoginController.userNetwork.getUsers());
+				     //LoginController.userNetwork.save();
 				     
-				    //writer.write(str);
-				    //writer.close();
+				    writer.write(str);
+				    writer.close();
 				    
 				    // Return to Login page.
 					Parent root = FXMLLoader.load(getClass().getResource("../view/Profile.fxml"));

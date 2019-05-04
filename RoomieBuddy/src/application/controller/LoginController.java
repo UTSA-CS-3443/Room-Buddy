@@ -59,9 +59,6 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 			enteredUser.setUsername(username);
 			enteredUser.setPassword(password);
 			
-			System.out.println(enteredUser.getUsername());
-			
-			SignUpController.currUser = enteredUser;
 
 			
 			//String welcomedUser = enteredUser.welcomeUser(username);
@@ -114,13 +111,8 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		try {
-			userNetwork.loadUsers("data/loginUPDATED.csv");
-			userNetwork.save();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 	}
+		
 
 }
