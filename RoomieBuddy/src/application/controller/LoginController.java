@@ -59,22 +59,19 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 			enteredUser.setUsername(username);
 			enteredUser.setPassword(password);
 			
-
+			
 			
 			//String welcomedUser = enteredUser.welcomeUser(username);
 			
-				String returnedUser = User.validate(enteredUser.getUsername(),enteredUser.getPassword());
-				
-				System.out.println(returnedUser);
-				
-				if(returnedUser.equals("false")) {
+				User returnedUser = User.validate(enteredUser);				
+				if(returnedUser==null) {
 					errorMsg.setText("Invalid username or password, please enter valid credentials");
 				}
-				
-				if(returnedUser.equals("true")) {
+				else {
 					try {
 						Parent root;
 						root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
+						enteredUser=returnedUser;
 						enteredUser.setSignInFlag(true);
 						Main.stage.setScene(new Scene(root, 800, 800));
 						Main.stage.show();	

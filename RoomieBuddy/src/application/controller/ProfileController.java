@@ -1,8 +1,11 @@
 package application.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import application.Main;
 import application.model.User;
@@ -156,7 +159,6 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 
 
 			try {
-				System.out.println("CHECK");
 				LoginController.userNetwork.save();
 				Parent root;
 				if(LoginController.enteredUser.isSignInFlag())
@@ -189,7 +191,51 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		try {
+			autoPopulate();
+		}
+		catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void autoPopulate() throws FileNotFoundException {
+		Scanner scan = new Scanner(new File("data/userInfo.csv"));
+		while (scan.hasNextLine()) {
+			String line = scan.nextLine();
+			String tokens[] = line.split(",");
+			if(tokens[0].equals(LoginController.enteredUser.getName())) {
+				classification.setText(tokens[1]);
+				major.setText(tokens[2]);
+				if(tokens[3].equals("veryClean"))
+					veryClean.setSelected(true);
+				else if(tokens[3].equals("modClean"))
+					modClean.setSelected(true);
+				else if(tokens[3].equals("notClean"))
+					notClean.setSelected(true);
 
+				//default set to false by default
+				noParty.setSelected(true);
+				if(tokens[4].equals("yesParty"))
+					yesParty.setSelected(true);
+				if(tokens[5].equals("true"))
+					film.setSelected(true);
+				if(tokens[6].equals("true"))
+					gaming.setSelected(true);
+				if(tokens[7].equals("true"))
+					sports.setSelected(true);
+				if(tokens[8].equals("true"))
+					hiking.setSelected(true);
+				if(tokens[9].equals("true"))
+					reading.setSelected(true);
+				if(tokens[10].equals("true"))
+					male.setSelected(true);
+				university.setText(tokens[11]);
+				apartment.setText(tokens[12]);
+				bio.setText(tokens[13]);
+				break;
+			}
+		}
 	}
 
 }

@@ -54,16 +54,14 @@ public class User {
 	}
 	/**
 	 * 
-	 * @param u
-	 * @param p
-	 * @return
+	 * @param User user
+	 * @return user
 	 * @throws IOException
 	 * the validate method checks if what the user entered is in the system and returns true if they are, 
 	 * and false if they are not
 	 */
 	
-	public static String validate(String u, String p)throws IOException {
-		String validation = "";
+	public static User validate(User user)throws IOException {
 		try{
 			Scanner scan = new Scanner(new File("data/loginUPDATED.csv"));
 			while(scan.hasNextLine()) {
@@ -71,22 +69,25 @@ public class User {
 				
 				if(!line.equals("")) {
 					String[] userSplit = line.split(",");
-					
-					if(userSplit[1].equals(u) && userSplit[2].equals(p)){
-						validation = "true";
-						break;
-						
-					}else if((userSplit[0]!=u) && (userSplit[1]!=p)){
-						validation = "false";
+					if(userSplit[1].equals(user.getUsername()) && userSplit[2].equals(user.getPassword())){
+						user.populate(userSplit[0], userSplit[4], userSplit[3]);
+						return user;						
 					}
 				}
 			}
 		scan.close();
+		return null;
+
 		}catch( IOException e ) {
 			e.printStackTrace();
 		}
-		System.out.println(validation);
-		return validation;
+		return null;
+	}
+	
+	public void populate(String name, String phoneNumber, String email) {
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
 	}
 
 	
