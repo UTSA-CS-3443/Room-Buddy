@@ -101,7 +101,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 		else if(notClean.isSelected()) {
 			data[2] = "notClean";
 		}
-		else if(yesParty.isSelected())
+		if(yesParty.isSelected())
 			data[3] = "yesParty";
 		else if(noParty.isSelected())
 			data[3] = "noParty";
@@ -156,6 +156,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 
 
 			try {
+				System.out.println("CHECK");
 				LoginController.userNetwork.save();
 				Parent root;
 				if(LoginController.enteredUser.isSignInFlag())

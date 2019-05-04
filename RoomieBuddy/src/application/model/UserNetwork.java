@@ -118,41 +118,53 @@ public class UserNetwork {
 
 		//FileWriter f = new FileWriter("loginUPDATED.csv");
 
-		FileWriter f = new FileWriter("data/loginUPDATED.csv");
+		FileWriter f = new FileWriter("data/userInfo.csv", false);
 		
 		String s = "";  
-		for( int x = 0; x < users.size(); x++){
-			s= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
-			String[] a = users.get(x).getData();			
-			for(int y = 0; y < a.length; y++){
-				if(y+1!=a.length)
-					s += a[y] + "," ;
+		for( int x = 0; x < LoginController.userNetwork.getUsers().size(); x++)
+		{
+			s += users.get(x).getName()+ ",";
+			String[] data = users.get(x).getData();			
+			for(int y = 0; y < data.length; y++){
+				if(y+1!=data.length)
+					s += data[y] + "," ;
 				else {
-					s+=a[y];
+					s+=data[y];
 				}
 			}
 			s += "\n"; 
-
+				
+			f.write(s);
 		}
 		
-		f.write(s);
 		
 		f.close();
+		//System.out.println( LoginController.userNetwork.getUsers() );
 	}
 	 
 	
 	public void loadUsers(String file) throws IOException{ 
 		File f = new File(file); 
 		Scanner scan = new Scanner(f); 
-		String input; 
-		int count = 0; 
-		scan.useDelimiter("\n");
-		while(scan.hasNext()){
-			input = scan.next(); 
-			String[] a;
-			a = input.split(",");
-		
-			if(a.length == 19){
+		//String input; 
+		//int count = 0; 
+		//scan.useDelimiter("\n");
+		while(scan.hasNextLine()){
+			String line = scan.nextLine(); 
+			String[] tokens;
+			tokens = line.split(",");
+			
+			String fullName = tokens[0];
+			String username = tokens[1];
+			String password = tokens[2];
+			String phone = tokens[3];
+			String email = tokens[4];
+			
+			User user = new User( fullName, username, password, phone, email );
+			
+			LoginController.userNetwork.getUsers().add( user );
+			
+				/*if(a.length == 19){
 				
 
 				User u = new User(a[0],a[1],a[2],a[3],a[4]);
@@ -162,9 +174,7 @@ public class UserNetwork {
 					data[i] = a[j];
 				}
 				u.setData(data);
-				users.add(u);
-
-			}
+				users.add(u);*/
 		}
 	
 		

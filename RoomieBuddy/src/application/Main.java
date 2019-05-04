@@ -1,5 +1,8 @@
 package application;
 	
+import java.io.IOException;
+
+import application.controller.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -15,7 +18,14 @@ public class Main extends Application {
 	public static Stage stage;
 	@Override
 	public void start(Stage primaryStage) {
+		
+		
 		try {
+			
+			
+			LoginController.userNetwork.loadUsers("data/loginUPDATED.csv");
+			
+			
 			Parent root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));
 			//Parent root = FXMLLoader.load(getClass().getResource("view/Search.fxml")); //uncomment this to test search.fxml
 			primaryStage.setScene(new Scene(root, 800, 800));
