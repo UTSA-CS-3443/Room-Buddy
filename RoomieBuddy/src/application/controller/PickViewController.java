@@ -2,6 +2,7 @@ package application.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import application.Main;
 import application.model.User;
@@ -36,7 +37,10 @@ public class PickViewController implements EventHandler<ActionEvent>  {
 		// TODO Auto-generated method stub
 		Parent root;
 		root = FXMLLoader.load(getClass().getResource("../view/Results.fxml"));
-		LoginController.userNetwork.getMatches(LoginController.currUser);
+		ArrayList<User> users = LoginController.userNetwork.getMatches(LoginController.currUser);
+		HashMap<String,String> map = LoginController.userNetwork.getMapDifferences(LoginController.currUser, users);
+		
+		
 		Main.stage.setScene(new Scene(root, 800, 800));
 		Main.stage.show();	
 		

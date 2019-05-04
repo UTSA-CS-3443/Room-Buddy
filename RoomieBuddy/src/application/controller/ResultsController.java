@@ -68,26 +68,11 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 			
 		}
 	}
-		
 	
 	public void loadResults() throws IOException{
 		
-		try {
-			Scanner scan = new Scanner ( new File("data/results.csv") );
-			//String input; 
-			//int count; 
-			//scan.useDelimiter("\n"); 
-			while(scan.hasNextLine()){
-				String line = scan.nextLine(); 
-				String [] tokens  = line.split(","); 
-				
-				
-			}
-		}
-			catch( IOException e ){
-				e.printStackTrace();
-			}
-		}
+		
+	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
