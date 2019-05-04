@@ -70,6 +70,7 @@ public class User {
 					String[] userSplit = line.split(",");
 					if(userSplit[1].equals(user.getUsername()) && userSplit[2].equals(user.getPassword())){
 						user.populate(userSplit[0], userSplit[4], userSplit[3]);
+						scan.close();
 						return user;						
 					}
 				}

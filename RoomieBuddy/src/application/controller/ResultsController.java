@@ -53,21 +53,15 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 		// TODO Auto-generated method stub
 		
 	}
+
 	/**
-	 * Handles when the goback button is pushed. This either takes them to the Pick screen
-	 * if the user has signed in (signin flag is set) or it takes them to the login screen
-	 * if they have not signed in yet
+	 * Handles when go back button is pushed. Sends user to the pickView
 	 * @param event
 	 */
 	public void goBack(ActionEvent event) {
 		try {
 			Parent root;
-			if(LoginController.enteredUser.isSignInFlag()) {
-				root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
-			}
-			else {
-				root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
-			}
+			root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();	
 			
