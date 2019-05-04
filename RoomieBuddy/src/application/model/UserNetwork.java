@@ -176,6 +176,8 @@ public class UserNetwork {
 		f.close();
 		//System.out.println( LoginController.userNetwork.getUsers() );
 	}
+	
+	
 	 
 	
 	public void loadUsers(String file) throws IOException{ 
@@ -196,6 +198,12 @@ public class UserNetwork {
 			String email = tokens[4];
 			
 			User user = new User( fullName, username, password, phone, email );
+			System.out.println(fullName);
+			String[] data = user.populateData(fullName);
+			user.setData(data);
+			for(int i = 0 ; i <data.length; i++) {
+				System.out.print(data[i]);
+			}
 			
 			LoginController.userNetwork.getUsers().add( user );
 			
