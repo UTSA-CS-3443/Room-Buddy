@@ -93,8 +93,8 @@ public class UserNetwork {
 					}
 					System.out.println(count);
 					if(count >= threshold) {
-						findUserByName( tokens[0] );
-						//matchedUsers.add(user);
+						User user = findUserByName( tokens[0] );
+						matchedUsers.add(user);
 					}
 				}
 			}
@@ -115,10 +115,16 @@ public class UserNetwork {
 
 	}*/
 
-	public void findUserByName(String name) {
-		User found;
+	public User findUserByName(String name) {
+		User found = null;
 		
-		System.out.println( this.users );
+		for(int i = 0; i < this.users.size(); i++)
+		{
+			if(this.users.get(i).getName().toLowerCase().equals(name.toLowerCase())) {
+				found = users.get(i);
+			}
+		}
+		return found;
 		
 	}
 	public void save() throws IOException{ 
