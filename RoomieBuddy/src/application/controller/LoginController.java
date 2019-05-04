@@ -33,6 +33,8 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 	
 	public static User enteredUser = new User(" " , " "); 
 	
+	public static User currUser;
+	
 	public static UserNetwork userNetwork = new UserNetwork();
 	@FXML
 	private TextField userText;
@@ -59,7 +61,7 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 			enteredUser.setUsername(username);
 			enteredUser.setPassword(password);
 			
-
+			currUser = enteredUser;
 			
 			//String welcomedUser = enteredUser.welcomeUser(username);
 			
