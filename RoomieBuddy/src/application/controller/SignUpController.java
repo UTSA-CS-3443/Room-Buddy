@@ -41,10 +41,7 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
     private Label emailInUse;
     @FXML 
     private Label userInUse;
-    
 
-    
-   // public static User currUser;
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
