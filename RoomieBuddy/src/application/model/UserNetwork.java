@@ -156,10 +156,10 @@ public class UserNetwork {
 			}
 			s += "\n"; 
 				
-			f.write("HI");
+			
 		}
 		
-		
+		f.write(s);
 		f.close();
 		//System.out.println( LoginController.userNetwork.getUsers() );
 	}
