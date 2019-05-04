@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -18,6 +19,28 @@ public class UserNetwork {
 
 		users = new ArrayList<User>(); 
 		matchedusernames = new ArrayList<String>(); 
+	}
+	
+	public HashMap<String,String> getMapDifferences(User use, ArrayList<User> matched){ 
+		
+		HashMap<String,String> diffUsers = new HashMap<String,String>(); 
+		String[] userQualities; 
+		userQualities = use.getData(); 
+		String[] matchedQualities; 
+		for(int x = 0; x < matched.size(); x++){	
+			matchedQualities = matched.get(x).getData();
+			diffUsers.put(matched.get(x).getName(), "" );
+			String append = "Contact Information :" + matched.get(x).getPhoneNumber() + matched.get(x).getEmail() + "\n" + "Differences: "; 
+			for(int y = 2; y < matchedQualities.length; y++ ){
+				if(!(userQualities[y].toLowerCase().equals(matchedQualities[y]))){
+					append+=matchedQualities[y] + " "; 
+				}				
+			}			
+			diffUsers.put(matched.get(x).getName(),append );
+		}
+		
+		return diffUsers;
+				
 	}
 
 
@@ -164,7 +187,6 @@ public class UserNetwork {
 			LoginController.userNetwork.getUsers().add( user );
 			
 				/*if(a.length == 19){
-				
 
 				User u = new User(a[0],a[1],a[2],a[3],a[4]);
 				String data[] = new String[14];
