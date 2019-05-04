@@ -159,6 +159,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 
 
 			try {
+
 				LoginController.userNetwork.save();
 				Parent root;
 				if(LoginController.enteredUser.isSignInFlag())

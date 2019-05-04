@@ -15,7 +15,9 @@ Our app will allow for apartment hunters to find the perfect roommate through su
 
 
 # Known Issues
-
+-Assumes unique name for every user
+-No acronym at all (when entering in university, major, etc.)
+-Potential bug: Finish profile creation after signing up
 
 # Demo Information
 Login info:  
