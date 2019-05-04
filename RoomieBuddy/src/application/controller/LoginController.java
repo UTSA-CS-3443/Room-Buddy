@@ -66,6 +66,7 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 			
 			//String welcomedUser = enteredUser.welcomeUser(username);
 			
+			
 				String returnedUser = User.validate(enteredUser.getUsername(),enteredUser.getPassword());
 				
 				System.out.println(returnedUser);
