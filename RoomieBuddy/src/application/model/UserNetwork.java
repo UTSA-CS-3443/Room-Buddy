@@ -113,7 +113,7 @@ public class UserNetwork {
 					if(tokens[13].toLowerCase().equals(apartment)){
 						count++;
 					}
-					System.out.println(count);
+			
 					if(count >= threshold) {
 						User user = findUserByName( tokens[0] );
 						matchedUsers.add(user);

@@ -44,7 +44,7 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
     
 
     
-    public static User currUser;
+    
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
