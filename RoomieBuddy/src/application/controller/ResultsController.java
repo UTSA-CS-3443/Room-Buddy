@@ -69,7 +69,7 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 			e.printStackTrace();
 		}
 	}
-	public void logout(ActionEvent event) {
+	public void logout(ActionEvent event) { 
 		
 		try {
 			Parent root;
