@@ -162,5 +162,6 @@
             <Font size="24.0" />
          </font>
       </Text>
+      <Button layoutX="34.0" layoutY="48.0" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
    </children>
 </AnchorPane>

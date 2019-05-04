@@ -50,9 +50,30 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 */	
 	@Override
 	public void handle(ActionEvent arg0) {
-		
 		// TODO Auto-generated method stub
 		
+	}
+	/**
+	 * Handles when the goback button is pushed. This either takes them to the Pick screen
+	 * if the user has signed in (signin flag is set) or it takes them to the login screen
+	 * if they have not signed in yet
+	 * @param event
+	 */
+	public void goBack(ActionEvent event) {
+		try {
+			Parent root;
+			if(LoginController.enteredUser.isSignInFlag()) {
+				root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
+			}
+			else {
+				root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+			}
+			Main.stage.setScene(new Scene(root, 800, 800));
+			Main.stage.show();	
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	public void logout(ActionEvent event) {
 		
@@ -64,8 +85,6 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 			
 		} catch(Exception e) {
 			e.printStackTrace();
-			
-			
 		}
 	}
 		

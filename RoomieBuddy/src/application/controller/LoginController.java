@@ -41,7 +41,6 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 	@FXML
 	private Text errorMsg;
 	
-	public static User currUser;
 	ArrayList<User> users = new ArrayList<User>(); 
 	
 	@Override
@@ -60,7 +59,6 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 			enteredUser.setUsername(username);
 			enteredUser.setPassword(password);
 			
-			currUser = enteredUser;
 			
 			//String welcomedUser = enteredUser.welcomeUser(username);
 			
@@ -84,6 +82,7 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 				
 					    
 			
+				
 		}catch(Exception e) {
 		//	e.printStackTrace();
 		}		

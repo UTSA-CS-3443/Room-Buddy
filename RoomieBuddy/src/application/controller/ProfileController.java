@@ -189,6 +189,23 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			e.printStackTrace();
 		}
 	}
+	
+	public void goBack(ActionEvent event) {
+		try {
+			Parent root;
+			if(LoginController.enteredUser.isSignInFlag()) {
+				root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
+			}
+			else {
+				root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+			}
+			Main.stage.setScene(new Scene(root, 800, 800));
+			Main.stage.show();	
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) { 
