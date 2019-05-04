@@ -22,7 +22,7 @@ public class UserNetwork {
 	}
 
 
-	public ArrayList<String> getMatches(User currUser){
+	public ArrayList<User> getMatches(User currUser){
 
 		String classification = currUser.getData()[0];
 		String major = currUser.getData()[1];
@@ -38,11 +38,11 @@ public class UserNetwork {
 		String university = currUser.getData()[11];
 		String apartment = currUser.getData()[12];
 
-		ArrayList<String> names = new ArrayList<String>();
+		ArrayList<User> matchedUsers = new ArrayList<User>();
 		
 		int threshold = 8;
 		int count;
-
+		
 		try {
 			Scanner scan = new Scanner ( new File("data/results.csv") );
 
@@ -93,7 +93,8 @@ public class UserNetwork {
 					}
 					System.out.println(count);
 					if(count >= threshold) {
-						names.add(tokens[0]);
+						findUserByName( tokens[0] );
+						//matchedUsers.add(user);
 					}
 				}
 			}
@@ -102,10 +103,10 @@ public class UserNetwork {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(names);
-		return names;
+		//System.out.println(names);
+		return matchedUsers;
 	}
-
+	
 
 	/*public User getUser(String name){ 	
 		for(int x = 0; x < users.size(); x++){
@@ -114,6 +115,12 @@ public class UserNetwork {
 
 	}*/
 
+	public void findUserByName(String name) {
+		User found;
+		
+		System.out.println( this.users );
+		
+	}
 	public void save() throws IOException{ 
 
 		//FileWriter f = new FileWriter("loginUPDATED.csv");
