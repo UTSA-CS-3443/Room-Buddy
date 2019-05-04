@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 
 import application.Main;
+import application.model.Dinosaur;
+import application.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,8 +28,8 @@ import javafx.stage.Stage;
 
 public class ResultsController implements Initializable, EventHandler<ActionEvent> {
 	
-	@FXML
-	private ListView<String> results;
+	@FXML ListView<User> userList = new ListView<User>();
+	@FXML ObservableList<User> userObsList;
 	
 	@FXML 
 	private TextArea roommateInfo;
@@ -51,6 +53,7 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 	@Override
 	public void handle(ActionEvent arg0) {
 		// TODO Auto-generated method stub
+
 		
 	}
 
@@ -87,11 +90,11 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 	 * @throws IOException
 	 */
 	public void loadResults() throws IOException{
-			
-		}
+		userObsList = FXCollections.observableArrayList();
+	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+
 		
 	}
 	
