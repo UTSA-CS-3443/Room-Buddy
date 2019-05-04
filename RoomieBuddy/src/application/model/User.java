@@ -21,18 +21,18 @@ public class User {
 	private String password;
 	private boolean signInFlag = false;
 	private String data[]; 
-	
+
 	public User(String user, String pass){
-		
+
 		this.username = user; 
 		this.password = pass; 
 		data = new String[14];
 		for(int x = 0; x < data.length; x++){
 			data[x] = " "; 
 		}
-		
+
 	}
-	
+
 	public User(String name, String user, String pass, String phoneNumber, String email) throws IOException{
 
 		this.name = name; 
@@ -41,11 +41,11 @@ public class User {
 		this.phoneNumber = phoneNumber; 
 		this.email = email; 
 		data = new String[14];		
-			
-	//	validate(userName,passWord);
-	//	welcomeUser(userName);
+
+		//	validate(userName,passWord);
+		//	welcomeUser(userName);
 	}
-	
+
 	public void populateArray(String dataParam[]) {
 
 		this.data = dataParam;
@@ -59,13 +59,13 @@ public class User {
 	 * the validate method checks if what the user entered is in the system and returns true if they are, 
 	 * and false if they are not
 	 */
-	
+
 	public static User validate(User user)throws IOException {
 		try{
 			Scanner scan = new Scanner(new File("data/loginUPDATED.csv"));
 			while(scan.hasNextLine()) {
 				String line = scan.nextLine();
-				
+
 				if(!line.equals("")) {
 					String[] userSplit = line.split(",");
 					if(userSplit[1].equals(user.getUsername()) && userSplit[2].equals(user.getPassword())){
@@ -74,41 +74,68 @@ public class User {
 					}
 				}
 			}
-		scan.close();
-		return null;
+			scan.close();
+			return null;
 
 		}catch( IOException e ) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
+
 	public void populate(String name, String phoneNumber, String email) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 	}
 
-	
+	public String[] populateData(String fullName) {
+
+		String [] getData = new String[14];
+		try{
+			Scanner scan = new Scanner(new File("data/userInfo.csv"));
+			while(scan.hasNextLine()) {
+				String line = scan.nextLine();
+				String [] tokens = line.split(",");
+
+				if(tokens[0].toLowerCase().equals( fullName.toLowerCase() )) {
+					for(int i = 0; i < 14; i++) {
+						int j = i+1;
+						getData[i] = tokens[j];
+					}
+				}
+			}
+
+			scan.close();
+
+		}catch( IOException e ) {
+			e.printStackTrace();
+		}
+
+		return getData;
+
+	}
+
+
 	public String getUsername(){
 		return username; 
 	}
-	
+
 	public String getPassword(){
 		return password; 
 	}
-	
+
 	public void setName(String n){
 		this.name = n; 
 	}
-	
+
 	public void setEmail(String e){ 
 		this.email = e; 
 	}
 	public void setUsername(String u){
 		this.username = u; 
 	}
-	
+
 	public void setPassword(String p){
 		this.password= p; 
 	}
@@ -140,12 +167,12 @@ public class User {
 		return name;
 	}
 
-	
+
 
 	public String getEmail() {
 		return email;
 	}
-	
-	
-	
+
+
+
 }
