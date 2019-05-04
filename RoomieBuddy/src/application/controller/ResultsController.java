@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 
 import application.Main;
-import application.model.Dinosaur;
 import application.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
