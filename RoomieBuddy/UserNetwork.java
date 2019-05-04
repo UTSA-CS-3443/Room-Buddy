@@ -1,9 +1,9 @@
 package application.model;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -20,31 +20,9 @@ public class UserNetwork {
 		users = new ArrayList<User>(); 
 		matchedusernames = new ArrayList<String>(); 
 	}
-	
-	public HashMap<String,String> getMapDifferences(User use, ArrayList<User> matched){ 
-		
-		HashMap<String,String> diffUsers = new HashMap<String,String>(); 
-		String[] userQualities; 
-		userQualities = use.getData(); 
-		String[] matchedQualities; 
-		for(int x = 0; x < matched.size(); x++){	
-			matchedQualities = matched.get(x).getData();
-			diffUsers.put(matched.get(x).getName(), "" );
-			String append = "Contact Information :" + matched.get(x).getPhoneNumber() + matched.get(x).getEmail() + "\n" + "Differences: "; 
-			for(int y = 2; y < matchedQualities.length; y++ ){
-				if(!(userQualities[y].toLowerCase().equals(matchedQualities[y]))){
-					append+=matchedQualities[y] + " "; 
-				}				
-			}			
-			diffUsers.put(matched.get(x).getName(),append );
-		}
-		
-		return diffUsers;
-				
-	}
 
 
-	public ArrayList<User> getMatches(User currUser){
+	public ArrayList<String> getMatches(User currUser){
 
 		String classification = currUser.getData()[0];
 		String major = currUser.getData()[1];
@@ -60,11 +38,11 @@ public class UserNetwork {
 		String university = currUser.getData()[11];
 		String apartment = currUser.getData()[12];
 
-		ArrayList<User> matchedUsers = new ArrayList<User>();
+		ArrayList<String> names = new ArrayList<String>();
 		
 		int threshold = 8;
 		int count;
-		
+
 		try {
 			Scanner scan = new Scanner ( new File("data/results.csv") );
 
@@ -115,8 +93,7 @@ public class UserNetwork {
 					}
 					System.out.println(count);
 					if(count >= threshold) {
-						User user = findUserByName( tokens[0] );
-						matchedUsers.add(user);
+						names.add(tokens[0]);
 					}
 				}
 			}
@@ -125,10 +102,10 @@ public class UserNetwork {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-		//System.out.println(names);
-		return matchedUsers;
+		System.out.println(names);
+		return names;
 	}
-	
+
 
 	/*public User getUser(String name){ 	
 		for(int x = 0; x < users.size(); x++){
@@ -137,69 +114,46 @@ public class UserNetwork {
 
 	}*/
 
-	public User findUserByName(String name) {
-		User found = null;
-		
-		for(int i = 0; i < this.users.size(); i++)
-		{
-			if(this.users.get(i).getName().toLowerCase().equals(name.toLowerCase())) {
-				found = users.get(i);
-			}
-		}
-		return found;
-		
-	}
 	public void save() throws IOException{ 
 
 		//FileWriter f = new FileWriter("loginUPDATED.csv");
 
-		FileWriter f = new FileWriter("data/userInfo.csv", false);
+		FileWriter f = new FileWriter("data/loginUPDATED.csv");
 		
 		String s = "";  
-		for( int x = 0; x < LoginController.userNetwork.getUsers().size(); x++)
-		{
-			s += users.get(x).getName()+ ",";
-			String[] data = users.get(x).getData();			
-			for(int y = 0; y < data.length; y++){
-				if(y+1!=data.length)
-					s += data[y] + "," ;
+		for( int x = 0; x < users.size(); x++){
+			s= users.get(x).getName() + "," + users.get(x).getUsername() + "," + users.get(x).getPassword() + "," + users.get(x).getEmail() + "," + users.get(x).getPhoneNumber() + ",";
+			String[] a = users.get(x).getData();			
+			for(int y = 0; y < a.length; y++){
+				if(y+1!=a.length)
+					s += a[y] + "," ;
 				else {
-					s+=data[y];
+					s+=a[y];
 				}
 			}
 			s += "\n"; 
-				
-			
+
 		}
 		
 		f.write(s);
+		
 		f.close();
-		//System.out.println( LoginController.userNetwork.getUsers() );
 	}
-	 
+	
 	
 	public void loadUsers(String file) throws IOException{ 
 		File f = new File(file); 
 		Scanner scan = new Scanner(f); 
-		//String input; 
-		//int count = 0; 
-		//scan.useDelimiter("\n");
-		while(scan.hasNextLine()){
-			String line = scan.nextLine(); 
-			String[] tokens;
-			tokens = line.split(",");
-			
-			String fullName = tokens[0];
-			String username = tokens[1];
-			String password = tokens[2];
-			String phone = tokens[3];
-			String email = tokens[4];
-			
-			User user = new User( fullName, username, password, phone, email );
-			
-			LoginController.userNetwork.getUsers().add( user );
-			
-				/*if(a.length == 19){
+		String input; 
+		int count = 0; 
+		scan.useDelimiter("\n");
+		while(scan.hasNext()){
+			input = scan.next(); 
+			String[] a;
+			a = input.split(",");
+		
+			if(a.length == 19){
+				
 
 				User u = new User(a[0],a[1],a[2],a[3],a[4]);
 				String data[] = new String[14];
@@ -208,12 +162,22 @@ public class UserNetwork {
 					data[i] = a[j];
 				}
 				u.setData(data);
-				users.add(u);*/
+				users.add(u);
+
+			}
 		}
-		scan.close();
+	
+		
 	}
 	
+	
+	
+	
 
+	
+	
+	
+	
 	
 
 	public ArrayList<User> getUsers() {

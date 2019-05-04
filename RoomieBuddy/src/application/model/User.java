@@ -28,7 +28,7 @@ public class User {
 		this.password = pass; 
 		data = new String[14];
 		for(int x = 0; x < data.length; x++){
-			data[x] = ""; 
+			data[x] = " "; 
 		}
 		
 	}
@@ -41,8 +41,7 @@ public class User {
 		this.phoneNumber = phoneNumber; 
 		this.email = email; 
 		data = new String[14];		
-	
-	
+			
 	//	validate(userName,passWord);
 	//	welcomeUser(userName);
 	}
