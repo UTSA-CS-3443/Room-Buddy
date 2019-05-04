@@ -36,7 +36,7 @@ public class PickViewController implements EventHandler<ActionEvent>  {
 		// TODO Auto-generated method stub
 		Parent root;
 		root = FXMLLoader.load(getClass().getResource("../view/Results.fxml"));
-		LoginController.userNetwork.getMatches(SignUpController.currUser);
+		LoginController.userNetwork.getMatches(LoginController.enteredUser);
 		Main.stage.setScene(new Scene(root, 800, 800));
 		Main.stage.show();	
 		
