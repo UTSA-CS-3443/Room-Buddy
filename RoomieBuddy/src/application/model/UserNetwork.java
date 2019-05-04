@@ -66,7 +66,7 @@ public class UserNetwork {
 		int count;
 		
 		try {
-			Scanner scan = new Scanner ( new File("data/results.csv") );
+			Scanner scan = new Scanner ( new File("data/userInfo.csv") );
 
 			while( scan.hasNextLine() ) {
 				count = 0;
@@ -74,43 +74,43 @@ public class UserNetwork {
 				String[] tokens = line.split(",");
 				if(!tokens[0].toLowerCase().equals(currUser.getName())) {
 
-					if(tokens[2].toLowerCase().equals(classification)){
+					if(tokens[1].toLowerCase().equals(classification)){
 						count++;
 					}
-					if(tokens[3].toLowerCase().equals(major)){
+					if(tokens[2].toLowerCase().equals(major)){
 						count++;
 					}
-					if(tokens[4].toLowerCase().equals(clean)){
+					if(tokens[3].toLowerCase().equals(clean)){
 						count++;
 					}
-					if(tokens[5].toLowerCase().equals(party)){
+					if(tokens[4].toLowerCase().equals(party)){
 						count++;
 					}
-					if(tokens[6].toLowerCase().equals(music)){
+					if(tokens[5].toLowerCase().equals(music)){
 						count++;
 					}
-					if(tokens[7].toLowerCase().equals(film)){
+					if(tokens[6].toLowerCase().equals(film)){
 						count++;
 					}
-					if(tokens[8].toLowerCase().equals(gaming)){
+					if(tokens[7].toLowerCase().equals(gaming)){
 						count++;
 					}
-					if(tokens[9].toLowerCase().equals(sports)){
+					if(tokens[8].toLowerCase().equals(sports)){
 						count++;
 					}
-					if(tokens[10].toLowerCase().equals(hiking)){
+					if(tokens[9].toLowerCase().equals(hiking)){
 						count++;
 					}
-					if(tokens[11].toLowerCase().equals(reading)){
+					if(tokens[10].toLowerCase().equals(reading)){
 						count++;
 					}
-					if(tokens[12].toLowerCase().equals(gender)){
+					if(tokens[11].toLowerCase().equals(gender)){
 						count++;
 					}
-					if(tokens[13].toLowerCase().equals(university)){
+					if(tokens[12].toLowerCase().equals(university)){
 						count++;
 					}
-					if(tokens[14].toLowerCase().equals(apartment)){
+					if(tokens[13].toLowerCase().equals(apartment)){
 						count++;
 					}
 					System.out.println(count);
