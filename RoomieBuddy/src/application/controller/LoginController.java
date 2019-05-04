@@ -65,7 +65,7 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 			
 				User returnedUser = User.validate(enteredUser);				
 				if(returnedUser==null) {
-
+ 
 					errorMsg.setText("Invalid username or password, please enter valid credentials");
 				}
 				else {
