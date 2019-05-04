@@ -191,7 +191,7 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 	}
 
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	public void initialize(URL arg0, ResourceBundle arg1) { 
 		try {
 			autoPopulate();
 		}
@@ -217,23 +217,26 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 
 				//default set to false by default
 				noParty.setSelected(true);
+				female.setSelected(true);
 				if(tokens[4].equals("yesParty"))
 					yesParty.setSelected(true);
 				if(tokens[5].equals("true"))
-					film.setSelected(true);
+					music.setSelected(true);
 				if(tokens[6].equals("true"))
-					gaming.setSelected(true);
+					film.setSelected(true);
 				if(tokens[7].equals("true"))
-					sports.setSelected(true);
+					gaming.setSelected(true);
 				if(tokens[8].equals("true"))
-					hiking.setSelected(true);
+					sports.setSelected(true);
 				if(tokens[9].equals("true"))
-					reading.setSelected(true);
+					hiking.setSelected(true);
 				if(tokens[10].equals("true"))
+					reading.setSelected(true);
+				if(tokens[11].equals("m"))
 					male.setSelected(true);
-				university.setText(tokens[11]);
-				apartment.setText(tokens[12]);
-				bio.setText(tokens[13]);
+				university.setText(tokens[12]);
+				apartment.setText(tokens[13]);
+				bio.setText(tokens[14]);
 				break;
 			}
 		}
