@@ -134,7 +134,7 @@ public class UserNetwork {
 			}
 			s += "\n"; 
 				
-			f.write(s);
+			f.write("HI");
 		}
 		
 		
