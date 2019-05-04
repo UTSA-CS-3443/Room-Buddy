@@ -176,8 +176,7 @@ public class UserNetwork {
 				u.setData(data);
 				users.add(u);*/
 		}
-	
-		
+		scan.close();
 	}
 	
 
