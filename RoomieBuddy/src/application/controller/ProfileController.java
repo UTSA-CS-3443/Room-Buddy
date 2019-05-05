@@ -89,38 +89,38 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 	public void handle(ActionEvent event) {
 		data[0] = classification.getText();
 		data[1] = major.getText();
-		data[4] = "false";
-		data[5] = "false";
-		data[6] = "false";
-		data[7] = "false";
-		data[8] = "false";
-		data[9] = "false";
+		data[4] = "I'm not into music";
+		data[5] = "I don't like film";
+		data[6] = "I don't like gaming";
+		data[7] = "I don't like sports";
+		data[8] = "I don't like to hike";
+		data[9] = "I don't like to read";
 		if(veryClean.isSelected()) {
-			data[2] = "veryClean";
+			data[2] = "I am very clean";
 		}
 		else if(modClean.isSelected()) {
-			data[2] = "modClean";
+			data[2] = "I am moderately clean";
 		}
 		else if(notClean.isSelected()) {
-			data[2] = "notClean";
+			data[2] = "I am not clean";
 		}
 		if(yesParty.isSelected())
-			data[3] = "yesParty";
+			data[3] = "I like to party";
 		else if(noParty.isSelected())
-			data[3] = "noParty";
+			data[3] = "I don't like to arty";
 		//hobbies
 		if(music.isSelected())
-			data[4] = "true";
+			data[4] = "I like music";
 		if(film.isSelected())
-			data[5] = "true";
+			data[5] = "I like film";
 		if(gaming.isSelected())
-			data[6] = "true";
+			data[6] = "I like gaming";
 		if(sports.isSelected())
-			data[7] = "true";
+			data[7] = "I like sports";
 		if(hiking.isSelected())
-			data[8] = "true";
+			data[8] = "I like hiking";
 		if(reading.isSelected())
-			data[9] = "true";
+			data[9] = "I like reading";
 		if(male.isSelected())
 			data[10] = "m";
 		else if(female.isSelected())
@@ -132,7 +132,8 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 
 		if( classification.getText().equals("") || major.getText().equals("") ||
 				(veryClean.isSelected()==false && modClean.isSelected()==false &&
-				notClean.isSelected()==false ) || (music.isSelected()==false &&
+				notClean.isSelected()==false ) || (noParty.isSelected()==false &&
+				yesParty.isSelected()==false)||(music.isSelected()==false &&
 				film.isSelected()==false && gaming.isSelected()==false &&
 				sports.isSelected()==false && hiking.isSelected() == false &&
 				sports.isSelected()==false && hiking.isSelected()==false &&
@@ -162,8 +163,11 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 
 				LoginController.userNetwork.save();
 				Parent root;
-				if(LoginController.enteredUser.isSignInFlag())
-					root = FXMLLoader.load(getClass().getResource("../view/pick.fxml"));
+				if(LoginController.enteredUser.isSignInFlag()) {
+					root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
+					LoginController.enteredUser.setData(LoginController.enteredUser.populateData(LoginController.enteredUser.getName()));
+					
+				}
 				else{
 					root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
 				}
@@ -225,29 +229,29 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			if(tokens[0].equals(LoginController.enteredUser.getName())) {
 				classification.setText(tokens[1]);
 				major.setText(tokens[2]);
-				if(tokens[3].equals("veryClean"))
+				if(tokens[3].equals("I am very clean"))
 					veryClean.setSelected(true);
-				else if(tokens[3].equals("modClean"))
+				else if(tokens[3].equals("I am moderately clean"))
 					modClean.setSelected(true);
-				else if(tokens[3].equals("notClean"))
+				else if(tokens[3].equals("I am not clean"))
 					notClean.setSelected(true);
 
 				//default set to false by default
 				noParty.setSelected(true);
 				female.setSelected(true);
-				if(tokens[4].equals("yesParty"))
+				if(tokens[4].equals("I like to party"))
 					yesParty.setSelected(true);
-				if(tokens[5].equals("true"))
+				if(tokens[5].equals("I like music"))
 					music.setSelected(true);
-				if(tokens[6].equals("true"))
+				if(tokens[6].equals("I like film"))
 					film.setSelected(true);
-				if(tokens[7].equals("true"))
+				if(tokens[7].equals("I like gaming"))
 					gaming.setSelected(true);
-				if(tokens[8].equals("true"))
+				if(tokens[8].equals("I like sports"))
 					sports.setSelected(true);
-				if(tokens[9].equals("true"))
+				if(tokens[9].equals("I like hiking"))
 					hiking.setSelected(true);
-				if(tokens[10].equals("true"))
+				if(tokens[10].equals("I like reading"))
 					reading.setSelected(true);
 				if(tokens[11].equals("m"))
 					male.setSelected(true);

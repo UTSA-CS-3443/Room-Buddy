@@ -5,8 +5,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.Map.Entry;
 
 import application.Main;
 import application.model.User;
@@ -25,44 +27,25 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+
 /**
  * This class handles the Results.fxml   
  * @author Tiffany Tabourne, Anna Arroyo
  *
  */
 public class ResultsController implements EventHandler<ActionEvent> {
-	
-	@FXML ListView<User> userList = new ListView<User>();
-	@FXML ObservableList<User> userObsList;
-	
+
+	@FXML 
+	private ListView<String> results;
 	@FXML 
 	private TextArea roommateInfo;
-	
 	@FXML 
 	private Button logout; 
-	
-	/*
-	
-	public void start(Stage primaryStage) {
-		try {
-			
-			loadResults("results.csv"); 
-						
-
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-*/	
-	@Override
-	public void handle(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-
-		
-	}
+	@FXML
+	private HashMap<String,String> map;
 
 	/**
-	 * Handles when go back button is pushed. Sends user to the pickView
+	 * Handles when go back button is pushed. Sends user to the Pick View
 	 * @param event
 	 */
 	public void goBack(ActionEvent event) {
@@ -71,43 +54,62 @@ public class ResultsController implements EventHandler<ActionEvent> {
 			root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();	
-			
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * load matches on ListView
+	 * @throws IOException
+	 */
+	public void loadResults(HashMap<String,String> matches) throws IOException{
+		map = matches;
+		ArrayList<String> listOfNames = new ArrayList<String>();
+		for(String name : matches.keySet()) {
+			listOfNames.add(name);
+		}
+		ObservableList<String> items = FXCollections.observableArrayList( listOfNames );
+		results.setItems( items );
+	}
+
+	/**
+	 * Handles when the names are clicked
+	 * @param event
+	 */
+	public void handleClick(javafx.scene.input.MouseEvent event) {
+
+		try {
+			String name = results.getSelectionModel().getSelectedItem();
+			for (Entry<String, String>  entry : map.entrySet()) {
+				if(name.equals(entry.getKey())) {
+					String value = entry.getValue();
+					roommateInfo.setText(value);
+				}
+			}
+		}
+		catch(Exception e) {
+			System.out.println("Select a name!");
+		}
+	}
+
 	/**
 	 * Handles when the logout button is pushed
 	 * @param event
 	 */
-	public void logout(ActionEvent event) { 
-		
+	@Override
+	public void handle(ActionEvent arg0) {
+
 		try {
 			Parent root;
 			root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();	
-			
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-		
-	/**
-	 * load matches on ListView
-	 * @throws IOException
-	 */
-	public void loadResults() throws IOException{
-		userObsList = FXCollections.observableArrayList();
-	}
-	
-	/**
-	 * Handles when the names are clicked
-	 * @param event
-	 */
-    public void handleClick(javafx.scene.input.MouseEvent event) {
-    	
-    }
-	
 
 }

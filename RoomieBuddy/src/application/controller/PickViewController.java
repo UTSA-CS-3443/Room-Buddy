@@ -24,6 +24,9 @@ import javafx.stage.Stage;
  */
 public class PickViewController implements EventHandler<ActionEvent>  {
 	@Override
+	/**
+	 * Handles when the edit profile button is clicked
+	 */
 	public void handle(ActionEvent event) {
 		int hi=0;
 		Parent root;
@@ -42,11 +45,14 @@ public class PickViewController implements EventHandler<ActionEvent>  {
 	 * @throws IOException
 	 */
 	public void results(ActionEvent event) throws IOException {
-		// TODO Auto-generated method stub
-		Parent root;
-		root = FXMLLoader.load(getClass().getResource("../view/Results.fxml"));
+		FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/Results.fxml"));
+		Parent root = (Parent) loader.load();
+				
 		ArrayList<User> list = LoginController.userNetwork.getMatches(LoginController.enteredUser);
 		HashMap<String, String> matches= LoginController.userNetwork.getMapDifferences(LoginController.enteredUser, list);
+		ResultsController resultsController = loader.getController();
+		resultsController.loadResults(matches);
+
 		Main.stage.setScene(new Scene(root, 800, 800));
 		Main.stage.show();	
 		
