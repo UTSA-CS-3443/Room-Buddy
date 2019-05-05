@@ -1,13 +1,9 @@
 package application.controller;
 
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Scanner;
-
 import application.Main;
 import application.model.User;
 import application.model.UserNetwork;
@@ -19,9 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 /**
  * @author Luis Valdes (qbw322)
  * UTSA CS 3443

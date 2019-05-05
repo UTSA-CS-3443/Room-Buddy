@@ -1,35 +1,28 @@
 package application.controller;
 
-
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.ResourceBundle;
-import java.util.Scanner;
 import java.util.Map.Entry;
-
 import application.Main;
-import application.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
+
 
 
 /**
- * This class handles the Results.fxml   
+ * This class handles the Results.fxml
+ * UTSA CS 3443
+ * Spring 2019  
  * @author Tiffany Tabourne, Anna Arroyo
  *
  */

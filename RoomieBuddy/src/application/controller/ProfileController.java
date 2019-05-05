@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-
 import application.Main;
 import application.model.User;
 import javafx.event.ActionEvent;
@@ -16,75 +15,64 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 
+/**
+ * Controller for the Profile.fxml
+ * UTSA CS 3443
+ * Spring 2019
+ * @author Klay Teegardin, Luis Valdes, Anna Aroyo, Tiffany Tabourne
+ *
+ */
 public class ProfileController implements Initializable, EventHandler<ActionEvent> {
-
 	@FXML
 	private RadioButton gaming;
-
 	@FXML
 	private RadioButton sports;
-
 	@FXML
 	private TextField university;
-
 	@FXML
 	private RadioButton yesParty;
-
 	@FXML
 	private RadioButton noParty;
-
 	@FXML
 	private RadioButton hiking;
-
 	@FXML
 	private RadioButton reading;
-
 	@FXML
 	private TextField bio;
-
 	@FXML
 	private RadioButton film;
-
 	@FXML
 	private TextField classification;
-
 	@FXML
 	private RadioButton music;
-
 	@FXML
 	private TextField major;
-
 	@FXML
 	private RadioButton veryClean;
-
 	@FXML
 	private RadioButton modClean;
-
 	@FXML
 	private RadioButton female;
-
 	@FXML
 	private RadioButton male;
-
 	@FXML
 	private TextField apartment;
-
 	@FXML
 	private RadioButton notClean;
-
-
 	@FXML
 	private Text error;
-
 	User entUser; 
-
 	String data[] = new String[14];
+	
+	/**
+	 * handles when the user clicks the submit button.
+	 * This method sets a data array and adds it to the userInfo.
+	 * It also makes sure a user does not leave a category empty
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		data[0] = classification.getText();
@@ -144,23 +132,16 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 			error.setText("Please fill in all fields!"); 
 		}
 		else {
-
-
-			//System.out.println("CHECK");
-
-
+			//Makes sure the user is not already in the userList
 			if(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()) == -1){						
 
 				LoginController.userNetwork.getUsers().add(LoginController.enteredUser);
 			}
 
-
+			//update the existing user's info
 			LoginController.userNetwork.updateExistingUser(LoginController.userNetwork.getExistingUser(LoginController.enteredUser.getUsername(), LoginController.enteredUser.getPassword()),data);
 
-
-
 			try {
-
 				LoginController.userNetwork.save();
 				Parent root;
 				if(LoginController.enteredUser.isSignInFlag()) {
@@ -182,6 +163,11 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 
 	}
 
+	/**
+	 * Handles when the logout button is pushed
+	 * Returns the user to the login screen
+	 * @param event
+	 */
 	public void logout(ActionEvent event) {
 		try {
 
@@ -194,6 +180,11 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 		}
 	}
 	
+	/**
+	 * handles when the go back button is pushed
+	 * Checks the signinflag to determine whether
+	 * @param event
+	 */
 	public void goBack(ActionEvent event) {
 		try {
 			Parent root;
@@ -212,6 +203,9 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 	}
 
 	@Override
+	/**
+	 * Initializes the Profile.fxml
+	 */
 	public void initialize(URL arg0, ResourceBundle arg1) { 
 		try {
 			autoPopulate();
@@ -221,6 +215,10 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 		}
 	}
 	
+	/**
+	 * Automatically populates the fields with your data if it can find it
+	 * @throws FileNotFoundException
+	 */
 	public void autoPopulate() throws FileNotFoundException {
 		Scanner scan = new Scanner(new File("data/userInfo.csv"));
 		while (scan.hasNextLine()) {
@@ -258,9 +256,11 @@ public class ProfileController implements Initializable, EventHandler<ActionEven
 				university.setText(tokens[12]);
 				apartment.setText(tokens[13]);
 				bio.setText(tokens[14]);
+				scan.close();
 				break;
 			}
 		}
+		scan.close();
 	}
 
 }

@@ -1,18 +1,12 @@
 package application.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.util.Scanner;
-
 import javafx.scene.control.Label;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import application.Main;
 import application.model.User;
-import application.model.UserNetwork;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -20,9 +14,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 /**|
- * 
+ * UTSA CS 3443
+ * Spring 2019 
  * @author Dylan Mall, Klay Teegardin
  *
  */
@@ -111,7 +105,6 @@ public class SignUpController implements EventHandler<ActionEvent>{
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

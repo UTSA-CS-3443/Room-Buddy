@@ -31,7 +31,7 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <Button layoutX="655.0" layoutY="23.0" mnemonicParsing="false" onAction="#logout" prefHeight="65.0" prefWidth="120.0" text="Logout">
+      <Button layoutX="655.0" layoutY="23.0" mnemonicParsing="false" onAction="#handle" prefHeight="65.0" prefWidth="120.0" text="Logout">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>

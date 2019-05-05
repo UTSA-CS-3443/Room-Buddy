@@ -1,26 +1,21 @@
 package application.controller;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
 import application.Main;
 import application.model.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 /**
  * Controller for the Pick.fxml view
+ * 
  * @author Luis Valdes
- *
+ * UTSA CS 3443
+ * Spring 2019
  */
 public class PickViewController implements EventHandler<ActionEvent>  {
 	@Override
@@ -28,7 +23,6 @@ public class PickViewController implements EventHandler<ActionEvent>  {
 	 * Handles when the edit profile button is clicked
 	 */
 	public void handle(ActionEvent event) {
-		int hi=0;
 		Parent root;
 		try {
 			root = FXMLLoader.load(getClass().getResource("../view/Profile.fxml"));
