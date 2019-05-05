@@ -16,7 +16,7 @@ Our app will allow for apartment hunters to find the perfect roommate through su
 
 # Known Issues
 -Assumes unique full name for every user  
--No acronym at all (when entering in university, major, classification, etc.)  
+-No acronym at all (when entering in university, major, classification, etc.) or else you won't match (utsa won't match the university of texas at san antonio)   
 -Potential bug: Must finish profile creation after signing up  
 -No commas in user bio  
 -Need at least one hobby
@@ -26,3 +26,7 @@ Login info:
 Username: amanda   
 Password: coffee  
 Room Buddy is run through our Main.java class
+UML diagram is in the data folder
+
+# Future Features
+In future development, we would love to have more dynamically addable questions and more options for profile. For example, the option to say if  you smoke or if you have pets. We could also advance the application with a webserver to protect password and user data.  
