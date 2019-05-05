@@ -100,7 +100,7 @@ public class ResultsController implements EventHandler<ActionEvent> {
 	 */
 	@Override
 	public void handle(ActionEvent arg0) {
-
+ 
 		try {
 			Parent root;
 			root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
