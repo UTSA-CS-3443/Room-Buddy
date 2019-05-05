@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * @author qbw322
+ * @author Luis Valdes, Klay Teegardin
  *UTSA CS 3443
  * Spring 2019
  *this class requires 2 arguments to validate if the user's credentials match

@@ -51,6 +51,7 @@ public class PickViewController implements EventHandler<ActionEvent>  {
 		Main.stage.show();	
 		
 	}
+	
 	/**
 	 * Handles when the logout button is clicked
 	 * @param event

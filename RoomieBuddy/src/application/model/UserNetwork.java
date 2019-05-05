@@ -135,13 +135,6 @@ public class UserNetwork {
 	}
 	
 
-	/*public User getUser(String name){ 	
-		for(int x = 0; x < users.size(); x++){
-			//if((users.get(x).getUsername()).equals(name))
-		}
-
-	}*/
-
 	public User findUserByName(String name) {
 		User found = null;
 		
@@ -155,9 +148,6 @@ public class UserNetwork {
 		
 	}
 	public void save() throws IOException{ 
-
-		//FileWriter f = new FileWriter("loginUPDATED.csv");
-
 		FileWriter f = new FileWriter("data/userInfo.csv", false);
 		
 		String s = "";  
@@ -179,7 +169,6 @@ public class UserNetwork {
 		
 		f.write(s);
 		f.close();
-		//System.out.println( LoginController.userNetwork.getUsers() );
 	}
 	
 	
@@ -188,9 +177,7 @@ public class UserNetwork {
 	public void loadUsers(String file) throws IOException{ 
 		File f = new File(file); 
 		Scanner scan = new Scanner(f); 
-		//String input; 
-		//int count = 0; 
-		//scan.useDelimiter("\n");
+
 		while(scan.hasNextLine()){
 			String line = scan.nextLine(); 
 			String[] tokens;
@@ -209,17 +196,7 @@ public class UserNetwork {
 			
 			
 			LoginController.userNetwork.getUsers().add( user );
-			
-				/*if(a.length == 19){
-
-				User u = new User(a[0],a[1],a[2],a[3],a[4]);
-				String data[] = new String[14];
-				for(int i=0; i < 14; i++) {
-					int j=i+5;
-					data[i] = a[j];
-				}
-				u.setData(data);
-				users.add(u);*/
+	
 		}
 		scan.close();
 	}

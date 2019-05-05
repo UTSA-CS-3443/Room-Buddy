@@ -78,7 +78,7 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 			
 				
 		}catch(Exception e) {
-		//	e.printStackTrace();
+			e.printStackTrace();
 		}		
 	}
 	
