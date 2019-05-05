@@ -72,6 +72,7 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 						Parent root;
 						root = FXMLLoader.load(getClass().getResource("../view/Pick.fxml"));
 						enteredUser=returnedUser;
+						enteredUser.setData(enteredUser.populateData(enteredUser.getName()));
 						enteredUser.setSignInFlag(true);
 						Main.stage.setScene(new Scene(root, 800, 800));
 						Main.stage.show();	

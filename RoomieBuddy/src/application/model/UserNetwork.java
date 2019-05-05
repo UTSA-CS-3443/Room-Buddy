@@ -30,22 +30,24 @@ public class UserNetwork {
 		for(int x = 0; x < matched.size(); x++){	
 			matchedQualities = matched.get(x).getData();
 			diffUsers.put(matched.get(x).getName(), "" );
-			String append = "Contact Information :" + matched.get(x).getPhoneNumber() + matched.get(x).getEmail() + "\n" + "Differences: "; 
-			for(int y = 2; y < matchedQualities.length; y++ ){
-				if(!(userQualities[y].toLowerCase().equals(matchedQualities[y]))){
-					append+=matchedQualities[y] + " "; 
-				}				
-			}			
+			String append = "Contact Information:  " + matched.get(x).getPhoneNumber() + "  " + matched.get(x).getEmail() + "\n" + "Differences: \n"; 
+			int y;
+			for(y = 2; y < matchedQualities.length - 1; y++ ){
+				if(!(userQualities[y].equals(matchedQualities[y]))){
+					append+=matchedQualities[y] + "\n";	
+				}
+			}
+			append += "\nBio: " + matchedQualities[y];
 			diffUsers.put(matched.get(x).getName(),append );
 		}
-		
+
 		return diffUsers;
 				
 	}
 
 
 	public ArrayList<User> getMatches(User currUser){
-
+		
 		String classification = currUser.getData()[0];
 		String major = currUser.getData()[1];
 		String clean = currUser.getData()[2];
@@ -72,48 +74,49 @@ public class UserNetwork {
 				count = 0;
 				String line = scan.nextLine();
 				String[] tokens = line.split(",");
-				if(!tokens[0].toLowerCase().equals(currUser.getName())) {
+				if(!tokens[0].toLowerCase().equals(currUser.getName().toLowerCase())) {
+					
 
-					if(tokens[1].toLowerCase().equals(classification)){
+					if(tokens[1].equalsIgnoreCase(classification)){
 						count++;
 					}
-					if(tokens[2].toLowerCase().equals(major)){
+					if(tokens[2].equals(major)){
 						count++;
 					}
-					if(tokens[3].toLowerCase().equals(clean)){
+					if(tokens[3].equals(clean)){
 						count++;
 					}
-					if(tokens[4].toLowerCase().equals(party)){
+					if(tokens[4].equals(party)){
 						count++;
 					}
-					if(tokens[5].toLowerCase().equals(music)){
+					if(tokens[5].equals(music)){
 						count++;
 					}
-					if(tokens[6].toLowerCase().equals(film)){
+					if(tokens[6].equals(film)){
 						count++;
 					}
-					if(tokens[7].toLowerCase().equals(gaming)){
+					if(tokens[7].equals(gaming)){
 						count++;
 					}
-					if(tokens[8].toLowerCase().equals(sports)){
+					if(tokens[8].equals(sports)){
 						count++;
 					}
-					if(tokens[9].toLowerCase().equals(hiking)){
+					if(tokens[9].equals(hiking)){
 						count++;
 					}
-					if(tokens[10].toLowerCase().equals(reading)){
+					if(tokens[10].equals(reading)){
 						count++;
 					}
-					if(tokens[11].toLowerCase().equals(gender)){
+					if(tokens[11].equals(gender)){
 						count++;
 					}
-					if(tokens[12].toLowerCase().equals(university)){
+					if(tokens[12].equals(university)){
 						count++;
 					}
-					if(tokens[13].toLowerCase().equals(apartment)){
+					if(tokens[13].equals(apartment)){
 						count++;
 					}
-			
+				
 					if(count >= threshold) {
 						User user = findUserByName( tokens[0] );
 						matchedUsers.add(user);
@@ -125,7 +128,6 @@ public class UserNetwork {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-		//System.out.println(names);
 		return matchedUsers;
 	}
 	
@@ -198,12 +200,10 @@ public class UserNetwork {
 			String email = tokens[4];
 			
 			User user = new User( fullName, username, password, phone, email );
-			System.out.println(fullName);
+		
 			String[] data = user.populateData(fullName);
 			user.setData(data);
-			for(int i = 0 ; i <data.length; i++) {
-				System.out.print(data[i]);
-			}
+			
 			
 			LoginController.userNetwork.getUsers().add( user );
 			
