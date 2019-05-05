@@ -18,7 +18,7 @@ Our app will allow for apartment hunters to find the perfect roommate through su
 -Assumes unique full name for every user  
 -No acronym at all (when entering in university, major, classification, etc.) or else you won't match (utsa won't match the university of texas at san antonio)   
 -Potential bug: Must finish profile creation after signing up  
--No commas in user bio  
+-Do not use commas in text fields (causes issues with the comma delimmited csv) 
 -Need at least one hobby
 
 # Demo Information
