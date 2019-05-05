@@ -26,6 +26,7 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 	public static final String foo = null;
 	
 	public static User enteredUser = new User(" " , " "); 
+	public static User logoutUser = new User(" " , " "); 
 	
 	public static UserNetwork userNetwork = new UserNetwork();
 	@FXML
