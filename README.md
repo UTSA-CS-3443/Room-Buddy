@@ -19,9 +19,10 @@ Our app will allow for apartment hunters to find the perfect roommate through su
 -No acronym at all (when entering in university, major, classification, etc.)  
 -Potential bug: Must finish profile creation after signing up  
 -No commas in user bio  
+-Need at least one hobby
 
 # Demo Information
 Login info:  
 Username: amanda   
 Password: coffee  
-Room Buddy is run through our Main.java class. 
+Room Buddy is run through our Main.java class
