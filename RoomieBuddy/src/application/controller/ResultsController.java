@@ -25,7 +25,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class ResultsController implements Initializable, EventHandler<ActionEvent> {
+/**
+ * This class handles the Results.fxml   
+ * @author Tiffany Tabourne, Anna Arroyo
+ *
+ */
+public class ResultsController implements EventHandler<ActionEvent> {
 	
 	@FXML ListView<User> userList = new ListView<User>();
 	@FXML ObservableList<User> userObsList;
@@ -71,6 +76,10 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * Handles when the logout button is pushed
+	 * @param event
+	 */
 	public void logout(ActionEvent event) { 
 		
 		try {
@@ -91,28 +100,14 @@ public class ResultsController implements Initializable, EventHandler<ActionEven
 	public void loadResults() throws IOException{
 		userObsList = FXCollections.observableArrayList();
 	}
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-
-		
-	}
 	
-	
-	class ListViewHandler implements EventHandler<MouseEvent> {
-	    @Override
-	    public void handle(MouseEvent event) {
-	        //this method will be overrided in next step
-	    }
-	 }
-	
-	
+	/**
+	 * Handles when the names are clicked
+	 * @param event
+	 */
     public void handleClick(javafx.scene.input.MouseEvent event) {
     	
     }
 	
-	public void getUser(String name){
-		
-		return; 
-	}
 
 }

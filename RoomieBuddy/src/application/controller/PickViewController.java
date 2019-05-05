@@ -17,10 +17,14 @@ import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Controller for the Pick.fxml view
+ * @author Luis Valdes
+ *
+ */
 public class PickViewController implements EventHandler<ActionEvent>  {
 	@Override
 	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
 		int hi=0;
 		Parent root;
 		try {
@@ -28,11 +32,15 @@ public class PickViewController implements EventHandler<ActionEvent>  {
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.show();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
  
 	}
+	/**
+	 * Handle when the results button is clicked
+	 * @param event
+	 * @throws IOException
+	 */
 	public void results(ActionEvent event) throws IOException {
 		// TODO Auto-generated method stub
 		Parent root;
@@ -43,6 +51,11 @@ public class PickViewController implements EventHandler<ActionEvent>  {
 		Main.stage.show();	
 		
 	}
+	/**
+	 * Handles when the logout button is clicked
+	 * @param event
+	 * @throws IOException
+	 */
 	public void logout(ActionEvent event) throws IOException {
 		// TODO Auto-generated method stub
 		Parent root;

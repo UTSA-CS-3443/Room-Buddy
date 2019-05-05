@@ -21,8 +21,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-
-public class SignUpController implements Initializable, EventHandler<ActionEvent>{
+/**|
+ * 
+ * @author Dylan Mall, Klay Teegardin
+ *
+ */
+public class SignUpController implements EventHandler<ActionEvent>{
 	@FXML
 	private TextField passField;
 	@FXML
@@ -43,10 +47,12 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 	private Label userInUse;
 
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-
-	}
+	/**
+	 * Handles when the create account button is pushed
+	 * Validates input , making sure that the username is not already taken
+	 * Makes sure email is unique
+	 * Appends the new user info to the loginUPDATED.csv file
+	 */
 	@Override
 	public void handle(ActionEvent arg0) {
 
@@ -67,29 +73,20 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 						userInUse.setText("Username taken.");
 						errors++;
 					}
-
 					if(tokens[3].equals(emailField.getText())){
 						emailInUse.setText("Email already in use.");
 						errors++;
 					}
 				}
-
-				// close the file!
 				scan.close();
-				//System.out.println(errors);
 				if(errors == 0) {
 					FileWriter writer = new FileWriter("data/loginUPDATED.csv",true);
 					String str = nameField.getText() + "," + userField.getText() + "," + passField.getText() + "," + emailField.getText() + "," + phoneField.getText() + "\n"  ;
-
 					LoginController.enteredUser = new User( nameField.getText(),userField.getText(),passField.getText(), phoneField.getText(), emailField.getText());
-					//  LoginController.userNetwork.getUsers().add(s); 
-					//System.out.println(LoginController.userNetwork.getUsers());
-					//LoginController.userNetwork.save();
-
 					writer.write(str);
 					writer.close();
 
-					// Return to Login page.
+					// Goes to the Profile page.
 					Parent root = FXMLLoader.load(getClass().getResource("../view/Profile.fxml"));
 					Main.stage.setScene(new Scene(root, 800, 800));
 					Main.stage.show();
@@ -103,6 +100,11 @@ public class SignUpController implements Initializable, EventHandler<ActionEvent
 		}
 	}
 
+	/**
+	 * Handles when the goBack button is pushed.
+	 * Sends the user back to Login.fxml
+	 * @param event
+	 */
 	public void goBack(ActionEvent event){
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));

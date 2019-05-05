@@ -88,6 +88,10 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 		}		
 	}
 	
+	/**
+	 * handles when the signup button is pushed
+	 * @param event
+	 */
 	public void signup(ActionEvent event){
 		try {
 			Parent root;
@@ -98,14 +102,18 @@ public class LoginController implements Initializable, EventHandler<ActionEvent>
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * clears the errorMsg field text
+	 */
 	public void clearText( ) {
 		errorMsg.setText("");
 	}
 	
-	public User getEnteredUser(){
-		return enteredUser; 
-	}
 
+	/**
+	 * Initializes the Login.fxml view
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	

@@ -8,7 +8,11 @@ import java.util.Map;
 import java.util.Scanner;
 
 import application.controller.LoginController;
-
+/**
+ * 
+ * @author Tiffany Tabourne, Anna Arroyo, Klay Teegardin, Luis Valdes
+ *
+ */
 public class UserNetwork {
 
 	private ArrayList<User> users; 
